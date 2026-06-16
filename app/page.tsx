@@ -1,101 +1,151 @@
-import Image from "next/image";
+import { Navbar } from './components/Navbar'
+import { HeroButtons } from './components/HeroButtons'
+import { ContactoWAButton } from './components/ContactoButtons'
+import { MapPin, Clock, Instagram, Phone } from 'lucide-react'
+
+const tratamientos = [
+  { nombre: 'Peeling', duracion: '40 min', descripcion: 'Renovación celular profunda para una piel radiante y uniforme. Ideal para manchas, textura irregular y poros dilatados.' },
+  { nombre: 'PRP Facial', duracion: '45 min', descripcion: 'Plasma rico en plaquetas para estimular la regeneración natural de tu piel. Resultados visibles desde la primera sesión.' },
+  { nombre: 'PRP Capilar', duracion: '45 min', descripcion: 'Tratamiento capilar con plasma autólogo para fortalecer el folículo y estimular el crecimiento del cabello.' },
+  { nombre: 'PRP Facial y Capilar', duracion: '60 min', descripcion: 'Sesión combinada de plasma rico en plaquetas para rostro y cuero cabelludo en una misma consulta.' },
+  { nombre: 'Mesoterapia Facial Nacional', duracion: '30 min', descripcion: 'Microinyecciones con cóctel vitamínico para hidratar, iluminar y revitalizar la piel del rostro.' },
+  { nombre: 'Mesoterapia Corporal Nacional', duracion: '30 min', descripcion: 'Tratamiento corporal con activos lipolíticos e hidratantes para reafirmar y tonificar la piel.' },
+  { nombre: 'Dermapen', duracion: '40 min', descripcion: 'Microagujas que estimulan la producción de colágeno para mejorar textura, cicatrices y signos de envejecimiento.' },
+  { nombre: 'Mesopeel', duracion: '45 min', descripcion: 'Peeling de mediana profundidad con ácidos específicos para renovar la piel y unificar el tono.' },
+  { nombre: 'Mesoterapia NCTF Facial', duracion: '45 min', descripcion: 'Biorevitalización con NCTF para restaurar la juventud y luminosidad de la piel.' },
+  { nombre: 'Skinbooster Nacional', duracion: '45 min', descripcion: 'Hidratación profunda con ácido hialurónico para una piel visiblemente más jugosa y luminosa.' },
+  { nombre: 'Skinbooster Español', duracion: '45 min', descripcion: 'Skinbooster importado de alta gama para una hidratación intensa y efecto glow de larga duración.' },
+  { nombre: 'HDC', duracion: '60 min', descripcion: 'Tratamiento de alta densidad de colágeno para restaurar el volumen y mejorar la calidad de la piel.' },
+  { nombre: 'Mesobotox', duracion: '30 min', descripcion: 'Técnica de microinyecciones de toxina botulínica diluida para mejorar la textura y poros de la piel.' },
+  { nombre: 'Toxina Full Face', duracion: '60 min', descripcion: 'Tratamiento completo de toxina botulínica para relajar las líneas de expresión de todo el rostro.' },
+  { nombre: 'Toxina Tercio Inferior', duracion: '30 min', descripcion: 'Aplicación precisa de toxina botulínica en la zona inferior del rostro.' },
+  { nombre: 'Toxina Tercio Superior', duracion: '30 min', descripcion: 'Tratamiento de toxina botulínica en frente, entrecejo y patas de gallo para una mirada descansada.' },
+  { nombre: 'Toxina Bruxismo', duracion: '30 min', descripcion: 'Inyección de toxina botulínica en el masetero para aliviar el bruxismo y estilizar el óvalo facial.' },
+  { nombre: 'Toxina Hiperhidrosis', duracion: '45 min', descripcion: 'Tratamiento con toxina botulínica para controlar el sudor excesivo en axilas, manos o pies.' },
+  { nombre: 'Encimas Lipolíticas', duracion: '45 min', descripcion: 'Inyecciones lipolíticas enzimáticas para reducir acúmulos grasos localizados de forma natural.' },
+  { nombre: 'Fosfatidilcolina', duracion: '40 min', descripcion: 'Tratamiento inyectable para eliminar grasa localizada y mejorar el contorno corporal.' },
+  { nombre: 'Sculptra', duracion: '60 min', descripcion: 'Bioestimulador de colágeno de larga duración para restaurar volumen de forma gradual y natural.' },
+]
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section style={{ minHeight: '100vh', background: 'linear-gradient(160deg, #F9F7F4 60%, #F2EAE6 100%)', display: 'flex', alignItems: 'center', paddingTop: '72px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 32px' }}>
+          <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#606060', marginBottom: '24px' }}>
+            Mar del Plata · Argentina
+          </p>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(52px, 8vw, 96px)', fontWeight: 300, lineHeight: 1.05, color: '#1D1D1D', marginBottom: '32px', letterSpacing: '-0.01em' }}>
+            Un espacio<br /><em>para vos.</em>
+          </h1>
+          <p style={{ fontSize: '17px', fontWeight: 300, color: '#606060', lineHeight: 1.8, maxWidth: '480px', marginBottom: '48px' }}>
+            Medicina estética de primer nivel en el corazón de Mar del Plata.
+            Cada visita es una experiencia diseñada para que te sientas bien desde que llegás.
+          </p>
+          <HeroButtons />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      <section style={{ background: '#353433', padding: '80px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '48px' }}>
+            {[
+              { titulo: 'Zona premium', texto: 'Ubicados en plena zona comercial y residencial de Mar del Plata, en un espacio diseñado para tu comodidad.' },
+              { titulo: 'Experiencia completa', texto: 'Sala de espera acogedora, aromas, café de bienvenida. Cada detalle está pensado para que disfrutes tu visita.' },
+              { titulo: 'Tecnología de vanguardia', texto: 'Equipamiento premium y técnicas actualizadas para resultados visibles y seguros.' },
+              { titulo: 'Atención personalizada', texto: 'Cada tratamiento se adapta a tus necesidades y objetivos. No hay protocolos genéricos.' },
+            ].map(({ titulo, texto }) => (
+              <div key={titulo}>
+                <div style={{ width: '32px', height: '1px', background: '#F2EAE6', marginBottom: '20px' }} />
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 400, color: '#F9F7F4', marginBottom: '12px' }}>{titulo}</p>
+                <p style={{ fontSize: '14px', fontWeight: 300, color: '#D9D9D9', lineHeight: 1.8 }}>{texto}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="tratamientos" style={{ background: '#F9F7F4', padding: '100px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#606060', marginBottom: '16px' }}>
+            Nuestros tratamientos
+          </p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300, color: '#1D1D1D', marginBottom: '64px', lineHeight: 1.1 }}>
+            Cada procedimiento,<br /><em>una transformación.</em>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1px', background: '#D9D9D9', border: '1px solid #D9D9D9' }}>
+            {tratamientos.map(({ nombre, duracion, descripcion }) => (
+              <div key={nombre} style={{ background: '#F9F7F4', padding: '32px 28px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 400, color: '#1D1D1D', lineHeight: 1.2 }}>{nombre}</p>
+                  <span style={{ fontSize: '11px', color: '#606060', background: '#F2EAE6', padding: '3px 10px', borderRadius: '2px', flexShrink: 0, marginLeft: '12px' }}>{duracion}</span>
+                </div>
+                <p style={{ fontSize: '13px', fontWeight: 300, color: '#606060', lineHeight: 1.7 }}>{descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="nosotras" style={{ background: '#F2EAE6', padding: '100px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#606060', marginBottom: '16px' }}>El equipo</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300, color: '#1D1D1D', marginBottom: '64px', lineHeight: 1.1 }}>
+            Profesionales<br /><em>que te acompañan.</em>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
+            {[
+              { nombre: 'Dra. Agustina Antognini', rol: 'Médica Estética', descripcion: 'Especialista en medicina estética con enfoque en resultados naturales y técnicas de vanguardia. Cada tratamiento está pensado para realzar tu belleza sin perder tu esencia.' },
+              { nombre: 'Cosmetóloga', rol: 'Cosmetología', descripcion: 'Próximamente.' },
+            ].map(({ nombre, rol, descripcion }) => (
+              <div key={nombre} style={{ background: '#F9F7F4', padding: '40px', borderRadius: '2px' }}>
+                <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#D9D9D9', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '24px', color: '#606060' }}>
+                  {nombre[0]}
+                </div>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 400, color: '#1D1D1D', marginBottom: '4px' }}>{nombre}</p>
+                <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#606060', marginBottom: '16px' }}>{rol}</p>
+                <p style={{ fontSize: '14px', fontWeight: 300, color: '#606060', lineHeight: 1.8 }}>{descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" style={{ background: '#1D1D1D', padding: '100px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px' }}>
+          <div>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 300, color: '#F9F7F4', lineHeight: 1.1, marginBottom: '32px' }}>
+              Visitanos<br /><em>cuando quieras.</em>
+            </p>
+            <ContactoWAButton />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            {[
+              { icon: MapPin,    titulo: 'Dirección', texto: 'Garay 1382 Piso 2 Of. B\nMar del Plata, Buenos Aires' },
+              { icon: Clock,     titulo: 'Horarios',  texto: 'Lun · Mar · Mié · Vie: 9 a 20 hs\nSábados: 9 a 14 hs' },
+              { icon: Phone,     titulo: 'WhatsApp',  texto: '+54 9 223 502-1512' },
+              { icon: Instagram, titulo: 'Instagram', texto: '@dra.agustinaantognini' },
+            ].map(({ icon: Icon, titulo, texto }) => (
+              <div key={titulo} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <Icon size={16} color="#D9D9D9" strokeWidth={1.5} style={{ marginTop: '2px', flexShrink: 0 }} />
+                <div>
+                  <p style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#606060', marginBottom: '4px' }}>{titulo}</p>
+                  <p style={{ fontSize: '14px', fontWeight: 300, color: '#D9D9D9', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer style={{ background: '#1D1D1D', borderTop: '1px solid #353433', padding: '24px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '14px', color: '#606060', letterSpacing: '0.08em' }}>ANTOGNINI</p>
+          <p style={{ fontSize: '12px', color: '#606060' }}>© 2026 · Medicina Estética Integral · Mar del Plata</p>
+        </div>
       </footer>
-    </div>
-  );
+    </>
+  )
 }
