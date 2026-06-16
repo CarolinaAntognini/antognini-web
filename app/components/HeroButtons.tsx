@@ -4,7 +4,7 @@ import React from "react"
 export function HeroButtons() {
   return (
     <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-      
+      <a
         href="https://wa.me/5492235021512?text=Hola%2C%20quiero%20reservar%20un%20turno"
         target="_blank"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ export function HeroButtons() {
       >
         Reservar turno
       </a>
-      
+      <a
         href="#tratamientos"
         style={{
           padding: '14px 32px',

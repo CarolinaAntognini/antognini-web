@@ -1,7 +1,7 @@
 import { Navbar } from './components/Navbar'
 import { HeroButtons } from './components/HeroButtons'
 import { ContactoWAButton } from './components/ContactoButtons'
-import { MapPin, Clock, Instagram, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react'
 
 const tratamientos = [
   { nombre: 'Peeling', duracion: '40 min', descripcion: 'Renovación celular profunda para una piel radiante y uniforme. Ideal para manchas, textura irregular y poros dilatados.' },
@@ -126,7 +126,7 @@ export default function Home() {
               { icon: MapPin,    titulo: 'Dirección', texto: 'Garay 1382 Piso 2 Of. B\nMar del Plata, Buenos Aires' },
               { icon: Clock,     titulo: 'Horarios',  texto: 'Lun · Mar · Mié · Vie: 9 a 20 hs\nSábados: 9 a 14 hs' },
               { icon: Phone,     titulo: 'WhatsApp',  texto: '+54 9 223 502-1512' },
-              { icon: Instagram, titulo: 'Instagram', texto: '@dra.agustinaantognini' },
+              { icon: ExternalLink, titulo: 'Instagram', texto: '@dra.agustinaantognini' },
             ].map(({ icon: Icon, titulo, texto }) => (
               <div key={titulo} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                 <Icon size={16} color="#D9D9D9" strokeWidth={1.5} style={{ marginTop: '2px', flexShrink: 0 }} />

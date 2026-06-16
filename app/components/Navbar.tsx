@@ -49,7 +49,7 @@ export function Navbar() {
               {label}
             </Link>
           ))}
-          
+          <a
             href="https://wa.me/5492235021512?text=Hola%2C%20quiero%20reservar%20un%20turno"
             target="_blank"
             rel="noopener noreferrer"
@@ -89,7 +89,7 @@ export function Navbar() {
               {label}
             </Link>
           ))}
-          
+          <a
             href="https://wa.me/5492235021512?text=Hola%2C%20quiero%20reservar%20un%20turno"
             target="_blank"
             rel="noopener noreferrer"
