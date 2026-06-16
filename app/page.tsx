@@ -41,8 +41,8 @@ export default function Home() {
             Un espacio<br /><em>para vos.</em>
           </h1>
           <p style={{ fontSize: '17px', fontWeight: 300, color: '#606060', lineHeight: 1.8, maxWidth: '480px', marginBottom: '48px' }}>
-            Medicina estética de primer nivel en el corazón de Mar del Plata.
-            Cada visita es una experiencia diseñada para que te sientas bien desde que llegás.
+            Medicina estética en Mar del Plata.
+            Una experiencia diseñada para que te sientas bien desde el primer momento.
           </p>
           <HeroButtons />
         </div>
@@ -52,10 +52,9 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '48px' }}>
             {[
-              { titulo: 'Zona premium', texto: 'Ubicados en plena zona comercial y residencial de Mar del Plata, en un espacio diseñado para tu comodidad.' },
-              { titulo: 'Experiencia completa', texto: 'Sala de espera acogedora, aromas, café de bienvenida. Cada detalle está pensado para que disfrutes tu visita.' },
-              { titulo: 'Tecnología de vanguardia', texto: 'Equipamiento premium y técnicas actualizadas para resultados visibles y seguros.' },
-              { titulo: 'Atención personalizada', texto: 'Cada tratamiento se adapta a tus necesidades y objetivos. No hay protocolos genéricos.' },
+              { titulo: 'Visión integral', texto: 'Cada tratamiento comienza con una evaluación personalizada para comprender tus objetivos, necesidades y estilo de vida.' },
+{ titulo: 'Resultados naturales', texto: 'Realzamos tu belleza respetando tu esencia.' },
+{ titulo: 'Criterio médico', texto: 'Tu piel refleja tu salud. Desde la primera consulta hasta el seguimiento, estás en manos de profesionales que conocen tu historia y cuidan tu proceso.' },
             ].map(({ titulo, texto }) => (
               <div key={titulo}>
                 <div style={{ width: '32px', height: '1px', background: '#F2EAE6', marginBottom: '20px' }} />
@@ -73,7 +72,7 @@ export default function Home() {
             Nuestros tratamientos
           </p>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300, color: '#1D1D1D', marginBottom: '64px', lineHeight: 1.1 }}>
-            Cada procedimiento,<br /><em>una transformación.</em>
+            Cada piel. Cada cuerpo.<br /><em>Cada objetivo.</em>
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1px', background: '#D9D9D9', border: '1px solid #D9D9D9' }}>
             {tratamientos.map(({ nombre, duracion, descripcion }) => (
@@ -97,8 +96,8 @@ export default function Home() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
             {[
-              { nombre: 'Dra. Agustina Antognini', rol: 'Médica Estética', descripcion: 'Especialista en medicina estética con enfoque en resultados naturales y técnicas de vanguardia. Cada tratamiento está pensado para realzar tu belleza sin perder tu esencia.' },
-              { nombre: 'Cosmetóloga', rol: 'Cosmetología', descripcion: 'Próximamente.' },
+              { nombre: 'Dra. Agustina Antognini', rol: 'Médica Estética', descripcion: 'Mi objetivo es ayudarte a sentirte bien con vos misma, a través de tratamientos seguros, personalizados y alineados con tu esencia. Creo en una medicina estética que acompaña, escucha y respeta la individualidad de cada persona.' },
+              { nombre: 'Milagros De La Garma', rol: 'Cosmetología', descripcion: 'Próximamente.' },
             ].map(({ nombre, rol, descripcion }) => (
               <div key={nombre} style={{ background: '#F9F7F4', padding: '40px', borderRadius: '2px' }}>
                 <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#D9D9D9', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '24px', color: '#606060' }}>
@@ -117,14 +116,16 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px' }}>
           <div>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 300, color: '#F9F7F4', lineHeight: 1.1, marginBottom: '32px' }}>
-              Visitanos<br /><em>cuando quieras.</em>
+              Empecemos<br /><em>por una consulta.</em>
+
+              Conocé nuestro espacio y descubrí qué tratamiento es adecuado para vos. Te acompañamos para encontrar la mejor versión de tus resultados, siempre desde una mirada médica e integral.
             </p>
             <ContactoWAButton />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             {[
               { icon: MapPin,    titulo: 'Dirección', texto: 'Garay 1382 Piso 2 Of. B\nMar del Plata, Buenos Aires' },
-              { icon: Clock,     titulo: 'Horarios',  texto: 'Lun · Mar · Mié · Vie: 9 a 20 hs\nSábados: 9 a 14 hs' },
+              { icon: Clock,     titulo: 'Horarios',  texto: 'Lun · Mar · Mié · Vie: 9 a 20 h\nSábados: 9 a 14 h' },
               { icon: Phone,     titulo: 'WhatsApp',  texto: '+54 9 223 502-1512' },
               { icon: ExternalLink, titulo: 'Instagram', texto: '@dra.agustinaantognini' },
             ].map(({ icon: Icon, titulo, texto }) => (
@@ -149,3 +150,4 @@ export default function Home() {
     </>
   )
 }
+
