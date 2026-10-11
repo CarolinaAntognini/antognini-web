@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { GIFT_CARD } from '../data/promociones'
-import { EQUIPO, FRASE_DE_LA_DOCTORA } from '../data/equipo'
+import { EQUIPO } from '../data/equipo'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 import { FlechaLarga, Grano } from './Detalles'
 
@@ -199,10 +199,6 @@ export function Equipo() {
             </div>
           ))}
         </div>
-        <figure className="cita" data-reveal>
-          <blockquote>“{FRASE_DE_LA_DOCTORA.texto}”</blockquote>
-          <figcaption className="lbl">{FRASE_DE_LA_DOCTORA.autora}</figcaption>
-        </figure>
       </div>
     </section>
   )

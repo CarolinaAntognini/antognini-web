@@ -8,8 +8,8 @@ export const SITIO = {
   whatsapp: '5492235021512',
   whatsappVisible: '+54 9 223 502-1512',
   instagram: 'antognini.medicinaestetica',
-  direccion: ['Garay 1382, Piso 2, Of. B', 'Mar del Plata, Buenos Aires'],
-  mapa: 'https://www.google.com/maps/search/?api=1&query=Garay+1382+Mar+del+Plata',
+  direccion: ['Garay 1382, Piso 2', 'Mar del Plata, Buenos Aires'],
+  mapa: 'https://maps.app.goo.gl/FxJ2pYTsQiNUAH7s5',
   horarios: [
     { dias: 'Lun a Vie', horas: '9 a 20 h' },
     { dias: 'Sábados', horas: '9 a 14 h' },

@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Flecha, Grano, TextoCursiva } from '../../components/Detalles'
+import { Flecha, Grano } from '../../components/Detalles'
 import Footer from '../../components/Footer'
 import { whatsappUrl } from '../../data/sitio'
-import { relacionados, tratamientoPorSlug, TRATAMIENTOS } from '../../data/tratamientos'
+import { ETIQUETAS_DATOS, relacionados, tratamientoPorSlug, TRATAMIENTOS } from '../../data/tratamientos'
 
 export const revalidate = 3600
 
@@ -22,7 +22,7 @@ export function generateMetadata({ params }: Props): Metadata {
     title: t.nombre,
     description: t.intro,
     alternates: { canonical: `/tratamientos/${t.slug}` },
-    openGraph: t.foto ? { images: [t.foto.src] } : undefined,
+    openGraph: { images: [t.foto.src] },
   }
 }
 
@@ -34,7 +34,10 @@ export default function FichaTratamiento({ params }: Props) {
   const ultima = palabras.length > 1 ? palabras.pop() : null
   const largo = t.nombre.length > 13
   const mensaje = `Hola, quiero consultar por ${t.nombre}`
-  const hayResultadosOCuidados = Boolean(t.resultados?.length || t.cuidados || t.noApto)
+  const datos = (Object.keys(ETIQUETAS_DATOS) as (keyof typeof ETIQUETAS_DATOS)[]).map((clave) => ({
+    etiqueta: ETIQUETAS_DATOS[clave],
+    valor: t.datos[clave],
+  }))
 
   return (
     <>
@@ -67,125 +70,71 @@ export default function FichaTratamiento({ params }: Props) {
               </div>
             </div>
             <div className="ficha-arco hide-m">
-              {t.foto ? (
-                <>
-                  <Image
-                    src={t.foto.src}
-                    alt={t.foto.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 900px) 0px, 420px"
-                    style={{ objectPosition: t.foto.posicion ?? '50% 50%' }}
-                  />
-                  <div className="ficha-velo" aria-hidden="true" />
-                </>
-              ) : (
-                <div className="ficha-vacia" aria-hidden="true">
-                  <Image src="/brand/isotipo-blanco.png" alt="" width={900} height={704} />
-                </div>
-              )}
+              <Image
+                src={t.foto.src}
+                alt={t.foto.alt}
+                fill
+                priority
+                sizes="(max-width: 900px) 0px, 420px"
+                style={{ objectPosition: t.foto.posicion ?? '50% 50%' }}
+              />
+              <div className="ficha-velo" aria-hidden="true" />
+              {t.foto.ilustrativa && <span className="ficha-ilustrativa">Imagen ilustrativa</span>}
             </div>
           </div>
         </section>
 
-        {t.datos && (
-          <section className="datos-sec">
-            <div className="wrap datos" style={{ gridTemplateColumns: `repeat(${t.datos.length}, minmax(0, 1fr))` }}>
-              {t.datos.map((d) => (
-                <div className="dato" key={d.etiqueta}>
-                  <p className="lbl">{d.etiqueta}</p>
-                  <p className="dato-v">{d.valor}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        <section className="datos-sec">
+          <div className="wrap datos">
+            {datos.map((d) => (
+              <div className="dato" key={d.etiqueta}>
+                <p className="lbl">{d.etiqueta}</p>
+                <p className="dato-v">{d.valor}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        {(t.sirve || t.detalle || t.opciones) && (
-          <section className="sec ficha-cuerpo">
-            <div className="wrap dos">
-              <div className="dos-izq">
-                {t.sirve ? (
-                  <>
-                    <p className="lbl">{t.sirve.titulo}</p>
-                    <h2 className="h2">
-                      <TextoCursiva texto={t.sirve.encabezado} />
-                    </h2>
-                    {t.sirve.ideal && <p className="ideal">{t.sirve.ideal}</p>}
-                  </>
-                ) : (
-                  <>
-                    <p className="lbl">En detalle</p>
-                    <h2 className="h2">
-                      Cómo es <em>el tratamiento.</em>
-                    </h2>
-                  </>
-                )}
-              </div>
-              <div className="dos-der" data-reveal>
-                {t.sirve && (
-                  <ol className="usos">
-                    {t.sirve.items.map((item, i) => (
-                      <li className="uso" key={item}>
-                        <em>{String(i + 1).padStart(2, '0')}</em>
-                        <p>{item}</p>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-                {t.detalle && (
-                  <div className={t.sirve ? 'detalle-chico' : 'detalle'}>
-                    {t.detalle.map((p) => (
-                      <p key={p}>{p}</p>
-                    ))}
-                  </div>
-                )}
-                {t.opciones && (
-                  <div className="opciones">
-                    <p className="lbl">{t.opciones.titulo}</p>
-                    <ul>
-                      {t.opciones.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+        <section className="sec ficha-cuerpo">
+          <div className="wrap dos">
+            <div className="dos-izq">
+              <p className="lbl">Preguntas frecuentes</p>
+              <h2 className="h2">
+                ¿Para qué <em>sirve?</em>
+              </h2>
+              {t.sirve.ideal && <p className="ideal">{t.sirve.ideal}</p>}
             </div>
-          </section>
-        )}
+            <div className="dos-der" data-reveal>
+              <ol className="usos">
+                {t.sirve.items.map((item, i) => (
+                  <li className="uso" key={item}>
+                    <em>{String(i + 1).padStart(2, '0')}</em>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
 
-        {hayResultadosOCuidados && (
-          <section className="sec res-sec">
-            <div className="wrap dos">
-              <div className="dos-izq">
-                {t.resultados && t.resultados.length > 0 ? (
-                  <>
-                    <p className="lbl">Resultados</p>
-                    <div className="resultados">
-                      {t.resultados.map((p) => (
-                        <p key={p}>{p}</p>
-                      ))}
-                    </div>
-                  </>
-                ) : null}
-              </div>
-              <div className="dos-der" data-reveal>
-                {(t.cuidados || t.noApto) && (
-                  <>
-                    <p className="lbl">{t.cuidados?.titulo ?? 'A tener en cuenta'}</p>
-                    <ul className="cuidados">
-                      {t.cuidados?.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                      {t.noApto && <li className="no-apto">{t.noApto}</li>}
-                    </ul>
-                  </>
-                )}
-              </div>
+        <section className="sec res-sec">
+          <div className="wrap dos">
+            <div className="dos-izq">
+              <p className="lbl">En detalle</p>
+              <h2 className="h2">
+                Cómo es <em>el tratamiento.</em>
+              </h2>
             </div>
-          </section>
-        )}
+            <div className="dos-der" data-reveal>
+              <div className="detalle">
+                {t.detalle.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+              {t.noApto && <p className="no-apto-nota">{t.noApto}</p>}
+            </div>
+          </div>
+        </section>
 
         <section className="sec ficha-cta" data-reveal>
           <Grano id="grano-ficha-cta" />

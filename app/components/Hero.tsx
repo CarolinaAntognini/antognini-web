@@ -7,8 +7,6 @@ const FOTO_ESPERA = { src: '/fotos/hero-recepcion.jpg', alt: 'Sala de espera con
 const FOTO_CONSULTORIO = { src: '/fotos/hero-consultorio.jpg', alt: 'Camilla del consultorio' }
 
 export default function Hero() {
-  const horarios = SITIO.horarios.map((h) => `${h.dias} ${h.horas}`).join(' · ')
-
   return (
     <>
       <section className="hero" id="inicio">
@@ -44,10 +42,7 @@ export default function Hero() {
                 </span>
               </span>
             </h1>
-            <p className="body fadeup hero-p" style={{ animationDelay: '.7s' }}>
-              Una experiencia diseñada para que te sientas bien desde el primer momento, con criterio médico y resultados naturales.
-            </p>
-            <div className="hero-cta fadeup" style={{ animationDelay: '.85s' }}>
+            <div className="hero-cta fadeup" style={{ animationDelay: '.7s' }}>
               <a className="btn btn-solido" href={whatsappUrl('Hola, quiero reservar un turno')} target="_blank" rel="noopener noreferrer">
                 Reservar por WhatsApp <Flecha />
               </a>
@@ -58,13 +53,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-bar">
-          <span>{SITIO.direccion[0]}</span>
-          <span className="hide-m hero-bar-c">{horarios}</span>
-          <span className="hide-m hero-bar-d">
-            Descubrí<span className="hero-linea" aria-hidden="true" />
-          </span>
-        </div>
       </section>
 
       <div className="hero-band" aria-hidden="false">

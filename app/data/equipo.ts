@@ -27,8 +27,3 @@ export const EQUIPO: Integrante[] = [
     alt: 'Lic. Sofía Zappalá',
   },
 ]
-
-export const FRASE_DE_LA_DOCTORA = {
-  texto: 'Mi objetivo es acompañarte a través de tratamientos seguros, personalizados y alineados con tu esencia.',
-  autora: 'Dra. Agustina Antognini',
-}
