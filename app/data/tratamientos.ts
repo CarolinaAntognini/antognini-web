@@ -36,7 +36,7 @@ export type Tratamiento = {
     zonas: string
   }
   /** Respuesta a "¿Para qué sirve?" */
-  sirve: { items: string[]; ideal?: string }
+  sirve: { encabezado: string; items: string[]; ideal?: string }
   /** Cómo es el tratamiento (párrafos) */
   detalle: string[]
   noApto?: string
@@ -67,6 +67,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Tercio superior, tercio inferior, bruxismo e hiperhidrosis',
     },
     sirve: {
+      encabezado: 'Una mirada *descansada* y natural.',
       items: [
         'Relajar las arrugas de expresión de la frente, el entrecejo y las patas de gallo',
         'Lograr una expresión más descansada, natural y rejuvenecida',
@@ -95,6 +96,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Labios',
     },
     sirve: {
+      encabezado: 'Labios hidratados, *definidos* y armónicos.',
       items: [
         'Mejorar la hidratación de los labios',
         'Definir el contorno labial',
@@ -123,6 +125,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro, cuello, escote y manos',
     },
     sirve: {
+      encabezado: 'Una piel más *fresca, uniforme* y saludable.',
       items: [
         'Aumentar la hidratación profunda de la piel',
         'Mejorar la textura, la elasticidad y la luminosidad',
@@ -155,6 +158,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro, mandíbula, mentón, cuello y otras zonas con pérdida de firmeza o volumen',
     },
     sirve: {
+      encabezado: 'Una piel más *firme* y elástica, de forma natural.',
       items: [
         'Mejorar la firmeza y la elasticidad de la piel',
         'Mejorar la calidad de la piel de manera progresiva y natural',
@@ -189,6 +193,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro y cuerpo, en zonas con pérdida de firmeza o volumen',
     },
     sirve: {
+      encabezado: 'Firmeza y volumen, *de forma gradual.*',
       items: [
         'Recuperar el volumen que se pierde con el paso del tiempo',
         'Mejorar la firmeza y la calidad de la piel',
@@ -218,6 +223,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro',
     },
     sirve: {
+      encabezado: 'Una piel con mejor *textura* y menos marcas.',
       items: [
         'Estimular la producción de colágeno y elastina',
         'Mejorar la textura y los poros',
@@ -246,6 +252,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro',
     },
     sirve: {
+      encabezado: 'Una piel *hidratada* y luminosa.',
       items: [
         'Aportar hidratación y luminosidad',
         'Mejorar la calidad de la piel',
@@ -278,6 +285,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro',
     },
     sirve: {
+      encabezado: 'Una piel *renovada*, más uniforme y luminosa.',
       items: [
         'Favorecer la renovación y la regeneración de la piel',
         'Mejorar la textura, la luminosidad, las manchas y los poros',
@@ -306,6 +314,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Rostro, cuero cabelludo y cuerpo',
     },
     sirve: {
+      encabezado: 'Regenera la piel y *fortalece* el cabello.',
       items: [
         'Mejorar arrugas, cicatrices (acné) y estrías',
         'Reparar daños solares',
@@ -334,6 +343,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Papada, óvalo facial y mejillas',
     },
     sirve: {
+      encabezado: 'Un contorno *más definido.*',
       items: ['Papada y óvalo facial', 'Jowls / mejillas', 'Retención de líquidos', 'Mejorar firmeza y textura'],
     },
     detalle: [
@@ -361,6 +371,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Papada, abdomen, flancos, brazos y muslos',
     },
     sirve: {
+      encabezado: 'Menos grasa *localizada* y mejor contorno.',
       items: [
         'Reducir la grasa localizada',
         'Ayudar a romper las células grasas para que el cuerpo las elimine de forma natural',
@@ -393,6 +404,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Papada, flancos, abdomen, brazos, trocánter y rodillas',
     },
     sirve: {
+      encabezado: 'Un contorno *remodelado*, de forma progresiva.',
       items: [
         'Degradar los adipocitos del tejido graso localizado',
         'Reducir adiposidades rebeldes',
@@ -425,6 +437,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       zonas: 'Flancos, abdomen, muslos y pantalón de montar',
     },
     sirve: {
+      encabezado: 'Menos aspecto de *piel de naranja.*',
       items: [
         'Mejorar la circulación sanguínea y linfática',
         'Favorecer la eliminación de líquidos retenidos',

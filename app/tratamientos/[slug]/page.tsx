@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Flecha, Grano } from '../../components/Detalles'
+import { Flecha, Grano, TextoCursiva } from '../../components/Detalles'
 import Footer from '../../components/Footer'
 import { whatsappUrl } from '../../data/sitio'
 import { ETIQUETAS_DATOS, relacionados, tratamientoPorSlug, TRATAMIENTOS } from '../../data/tratamientos'
@@ -98,9 +98,9 @@ export default function FichaTratamiento({ params }: Props) {
         <section className="sec ficha-cuerpo">
           <div className="wrap dos">
             <div className="dos-izq">
-              <p className="lbl">Preguntas frecuentes</p>
+              <p className="lbl">¿Para qué sirve?</p>
               <h2 className="h2">
-                ¿Para qué <em>sirve?</em>
+                <TextoCursiva texto={t.sirve.encabezado} />
               </h2>
               {t.sirve.ideal && <p className="ideal">{t.sirve.ideal}</p>}
             </div>
