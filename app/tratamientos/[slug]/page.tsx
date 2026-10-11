@@ -142,7 +142,7 @@ export default function FichaTratamiento({ params }: Props) {
             <h2 className="h2">
               ¿Querés saber si <em>es para vos?</em>
             </h2>
-            <p className="body">Escribinos y la doctora te orienta según tu piel y tus objetivos.</p>
+            <p className="body">La indicación y la cantidad de sesiones las define la doctora en la consulta, según tu piel y tus objetivos.</p>
             <a className="btn btn-solido" href={whatsappUrl(mensaje)} target="_blank" rel="noopener noreferrer">
               Reservar mi consulta
             </a>
