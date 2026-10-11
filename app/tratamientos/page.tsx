@@ -40,8 +40,7 @@ export default function PaginaTratamientos() {
               </span>
             </h1>
             <p className="body fadeup pg-p" style={{ animationDelay: '.6s' }}>
-              Cada tratamiento se indica en la consulta médica, según tu piel y lo que querés lograr. La cantidad de sesiones también la define la doctora.
-            </p>
+              Cada tratamiento se indica en la consulta médica, según tu piel y lo que querés lograr.            </p>
           </div>
         </section>
 

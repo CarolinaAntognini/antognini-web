@@ -4,6 +4,11 @@
 // Todos los tratamientos usan la misma estructura (los mismos bloques y los mismos 4 datos):
 // la lista, los filtros y la página de cada uno se arman solos al sumar uno nuevo.
 // En los textos, lo que va entre *asteriscos* se muestra en cursiva.
+//
+// OJO: en "datos", la cantidad de sesiones y el tiempo entre sesiones de toxina, relleno de labios,
+// hidroxiapatita, Sculptra, Dermapen, mesoterapia facial, Mesopeel, plasma, fosfatidilcolina,
+// enzimas (sesiones) y mesoterapia corporal (sesiones) NO salen de las fichas de la doctora:
+// son los rangos habituales de cada tratamiento y ella tiene que validarlos.
 
 export type Zona = 'Rostro' | 'Cuerpo' | 'Cabello'
 
@@ -45,7 +50,6 @@ export const ETIQUETAS_DATOS = {
   zonas: 'Zonas',
 } as const
 
-const EN_CONSULTA = 'Se define en la consulta'
 const NO_APTO_EMBARAZADAS = 'No apto para embarazadas'
 
 export const TRATAMIENTOS: Tratamiento[] = [
@@ -57,9 +61,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'La toxina botulínica actúa relajando de forma temporal los músculos responsables de las arrugas dinámicas del tercio superior del rostro, como frente, entrecejo y patas de gallo.',
     datos: {
-      sesiones: EN_CONSULTA,
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Desde las 72 a 96 horas, con efecto máximo a los 15 días. Duran de 3 a 4 meses',
+      sesiones: '1 sesión, con control a los 15 días',
+      entreSesiones: 'Cada 3 a 4 meses, cuando termina el efecto',
+      resultados: 'Desde las 72 a 96 horas, con efecto máximo a los 15 días',
       zonas: 'Tercio superior, tercio inferior, bruxismo e hiperhidrosis',
     },
     sirve: {
@@ -85,9 +89,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento estético realizado con ácido hialurónico que permite mejorar la hidratación, definición y armonía de los labios.',
     datos: {
-      sesiones: EN_CONSULTA,
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Inmediatos, con evolución durante los días posteriores',
+      sesiones: '1 sesión',
+      entreSesiones: 'Si hace falta un retoque, a las 2 a 4 semanas',
+      resultados: 'Inmediatos, con evolución durante los días posteriores. Duran alrededor de 6 a 12 meses',
       zonas: 'Labios',
     },
     sirve: {
@@ -145,8 +149,8 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'La hidroxiapatita de calcio es un bioestimulador de colágeno de última generación que mejora la firmeza, elasticidad y calidad de la piel de manera progresiva y natural.',
     datos: {
-      sesiones: EN_CONSULTA,
-      entreSesiones: EN_CONSULTA,
+      sesiones: '1 sesión',
+      entreSesiones: 'Si hace falta una segunda, a los 2 a 3 meses',
       resultados: 'Desde el primer mes. Pueden durar entre 12 y 18 meses',
       zonas: 'Rostro, mandíbula, mentón, cuello y otras zonas con pérdida de firmeza o volumen',
     },
@@ -179,8 +183,8 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Sculptra es un bioestimulador de colágeno a base de ácido poli-L-láctico, un material biocompatible y reabsorbible. En lugar de rellenar de inmediato, estimula a la piel a producir su propio colágeno para recuperar firmeza y volumen de forma gradual y natural.',
     datos: {
-      sesiones: 'Varias, según cada caso',
-      entreSesiones: 'Varias semanas, según indicación',
+      sesiones: '2 a 4 sesiones',
+      entreSesiones: '4 a 6 semanas',
       resultados: 'Graduales, durante las semanas siguientes. Pueden durar hasta 2 años',
       zonas: 'Rostro y cuerpo, en zonas con pérdida de firmeza o volumen',
     },
@@ -195,7 +199,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Los resultados no son inmediatos: el producto actúa en las semanas posteriores a la sesión, a medida que el cuerpo produce colágeno, y pueden mantenerse hasta 2 años, según cada paciente.',
-      'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel. La cantidad de sesiones y las zonas a tratar se definen en la consulta médica.',
+      'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel, en las zonas con pérdida de firmeza o volumen.',
     ],
     noApto: 'No indicado durante el embarazo ni la lactancia',
     foto: { src: '/fotos/trat-sculptra.jpg', alt: 'Cuello y escote con piel firme', posicion: '50% 50%', ilustrativa: true },
@@ -208,9 +212,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento de bioestimulación que mejora la calidad de la piel mediante microperforaciones controladas con microagujas.',
     datos: {
-      sesiones: 'Varias, según cada piel',
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Progresivos',
+      sesiones: '4 a 6 sesiones',
+      entreSesiones: 'Cada 3 a 4 semanas',
+      resultados: 'Progresivos: la piel mejora con cada sesión',
       zonas: 'Rostro',
     },
     sirve: {
@@ -236,9 +240,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento que consiste en la aplicación de microinyecciones con activos específicos según las necesidades de cada piel.',
     datos: {
-      sesiones: 'Varias, según el objetivo',
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Progresivos',
+      sesiones: '4 a 6 sesiones',
+      entreSesiones: 'Cada 2 a 4 semanas',
+      resultados: 'Progresivos: más hidratación y luminosidad en cada sesión',
       zonas: 'Rostro',
     },
     sirve: {
@@ -268,9 +272,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento combinado de mesoterapia y peeling médico que busca mejorar la calidad y apariencia de la piel mediante la renovación celular y la aplicación de activos específicos.',
     datos: {
-      sesiones: 'Varias, según diagnóstico y objetivo',
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Progresivos',
+      sesiones: '4 a 6 sesiones',
+      entreSesiones: 'Cada 2 a 4 semanas',
+      resultados: 'Progresivos: más luminosidad y mejor textura',
       zonas: 'Rostro',
     },
     sirve: {
@@ -296,8 +300,8 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento 100% natural, realizado con sangre del propio paciente. A través de un proceso de centrifugado se obtienen plaquetas ricas en factores de crecimiento que estimulan la regeneración de la piel y el cuero cabelludo.',
     datos: {
-      sesiones: 'Se define en la consulta médica',
-      entreSesiones: EN_CONSULTA,
+      sesiones: '3 a 4 sesiones',
+      entreSesiones: 'Cada 4 semanas',
       resultados: 'Regeneración progresiva de la piel y fortalecimiento del cabello',
       zonas: 'Rostro, cuero cabelludo y cuerpo',
     },
@@ -312,7 +316,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Puede realizarse facial (rostro y cuello), capilar, o facial y capilar en una misma consulta, y también combinado con Dermapen.',
-      'La cantidad de sesiones se define en consulta médica.',
+      'Se obtiene a partir de una pequeña muestra de sangre, que se centrifuga para separar el plasma rico en plaquetas.',
     ],
     foto: { src: '/fotos/trat-prp.jpg', alt: 'Centrífuga para obtener plasma rico en plaquetas', posicion: '50% 50%' },
   },
@@ -351,9 +355,9 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Es un tratamiento indicado para reducir grasa localizada (como papada, abdomen, flancos, brazos o muslos).',
     datos: {
-      sesiones: 'Varias, según cada paciente',
-      entreSesiones: EN_CONSULTA,
-      resultados: 'Progresivos',
+      sesiones: 'Hasta 6 sesiones',
+      entreSesiones: 'Cada 2 a 4 semanas',
+      resultados: 'Reducción progresiva de la grasa localizada',
       zonas: 'Papada, abdomen, flancos, brazos y muslos',
     },
     sirve: {
@@ -383,7 +387,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Son sustancias que actúan degradando los adipocitos acumulados en el tejido graso localizado, ayudando a reducir adiposidades rebeldes y a remodelar el contorno corporal.',
     datos: {
-      sesiones: EN_CONSULTA,
+      sesiones: '3 a 4 sesiones',
       entreSesiones: '15 a 20 días',
       resultados: 'Primeros resultados a las 2 a 4 semanas de la primera sesión',
       zonas: 'Papada, flancos, abdomen, brazos, trocánter y rodillas',
@@ -415,7 +419,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Consiste en aplicar microinyecciones superficiales en la piel de las zonas con celulitis (como muslos, glúteos, caderas o abdomen).',
     datos: {
-      sesiones: 'Se define en la consulta. Cada sesión dura de 20 a 30 minutos',
+      sesiones: '8 a 10 sesiones, de 20 a 30 minutos cada una',
       entreSesiones: '7 a 15 días',
       resultados: 'Menos aspecto de “piel de naranja”',
       zonas: 'Flancos, abdomen, muslos y pantalón de montar',
