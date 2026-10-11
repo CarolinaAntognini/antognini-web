@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import BotonPausa from './BotonPausa'
 import { ESPECIALIDADES } from '../data/sitio'
 
 /** Franja en movimiento con las especialidades. */
@@ -17,6 +18,7 @@ export default function Marquee() {
           </div>
         ))}
       </div>
+      <BotonPausa objetivo=".mq-sec" />
     </section>
   )
 }

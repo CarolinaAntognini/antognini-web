@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import BotonPausa from './BotonPausa'
 import { AVISOS_FIJOS } from '../data/sitio'
 import { fechaCorta, promocionVigente } from '../data/promociones'
 
@@ -45,6 +46,7 @@ export default function Ticker() {
           ))}
         </div>
       </div>
+      <BotonPausa objetivo=".tk" />
     </div>
   )
 }

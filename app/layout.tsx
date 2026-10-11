@@ -4,6 +4,7 @@ import './globals.css'
 import BarraCelular from './components/BarraCelular'
 import Header from './components/Header'
 import RevealObserver from './components/RevealObserver'
+import JsonLd from './components/JsonLd'
 import Ticker from './components/Ticker'
 import { instagramUrl, SITIO, URL_SITIO } from './data/sitio'
 
@@ -55,27 +56,44 @@ export const viewport: Viewport = {
 
 const datosEstructurados = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  name: 'Antognini Medicina Estética Integral',
-  url: URL_SITIO,
-  telephone: `+${SITIO.whatsapp}`,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: SITIO.direccion[0],
-    addressLocality: SITIO.ciudad,
-    addressRegion: 'Buenos Aires',
-    addressCountry: 'AR',
-  },
-  openingHoursSpecification: [
+  '@graph': [
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '20:00',
+      '@type': 'MedicalBusiness',
+      '@id': `${URL_SITIO}/#centro`,
+      name: 'Antognini Medicina Estética Integral',
+      url: URL_SITIO,
+      image: `${URL_SITIO}/opengraph-image.png`,
+      logo: `${URL_SITIO}/brand/imagotipo-negro.png`,
+      telephone: `+${SITIO.whatsapp}`,
+      hasMap: SITIO.mapa,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: SITIO.direccion[0],
+        addressLocality: SITIO.ciudad,
+        addressRegion: 'Buenos Aires',
+        addressCountry: 'AR',
+      },
+      areaServed: SITIO.ciudad,
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '20:00',
+        },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+      ],
+      sameAs: [instagramUrl],
     },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+    {
+      '@type': 'Physician',
+      '@id': `${URL_SITIO}/#doctora`,
+      name: 'Agustina Antognini',
+      identifier: 'M.P. 97025',
+      image: `${URL_SITIO}/fotos/dra-agustina.jpg`,
+      worksFor: { '@id': `${URL_SITIO}/#centro` },
+    },
   ],
-  sameAs: [instagramUrl],
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -96,7 +114,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <noscript>
           <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
         </noscript>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datosEstructurados) }} />
+        <JsonLd datos={datosEstructurados} />
       </body>
     </html>
   )

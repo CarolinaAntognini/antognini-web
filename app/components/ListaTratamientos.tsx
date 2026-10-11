@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TRATAMIENTOS, ZONAS, type Zona } from '../data/tratamientos'
 import { FlechaLarga } from './Detalles'
 
@@ -14,8 +13,12 @@ function filtroInicial(zona: string | null): Filtro {
 }
 
 export default function ListaTratamientos() {
-  const params = useSearchParams()
-  const [filtro, setFiltro] = useState<Filtro>(filtroInicial(params.get('zona')))
+  // La lista completa sale en el HTML del servidor (Google la lee); el filtro de ?zona= se aplica al cargar.
+  const [filtro, setFiltro] = useState<Filtro>('Todos')
+
+  useEffect(() => {
+    setFiltro(filtroInicial(new URLSearchParams(window.location.search).get('zona')))
+  }, [])
 
   const lista = TRATAMIENTOS.filter((t) => filtro === 'Todos' || t.zonas.includes(filtro))
 

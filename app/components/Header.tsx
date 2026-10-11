@@ -49,7 +49,7 @@ export default function Header() {
       <header className={clases}>
         <div className="hdr-in">
           <Link href="/" aria-label="Antognini, inicio" className="hdr-logo" onClick={() => setAbierto(false)}>
-            <Image src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} priority />
+            <Image src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} sizes="170px" priority />
           </Link>
           <nav className="hdr-nav" aria-label="Principal">
             {NAVEGACION.map((l) => (

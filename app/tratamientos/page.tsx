@@ -1,24 +1,44 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Suspense } from 'react'
 import { Grano } from '../components/Detalles'
 import Footer from '../components/Footer'
 import ListaTratamientos from '../components/ListaTratamientos'
-import { whatsappUrl } from '../data/sitio'
+import JsonLd from '../components/JsonLd'
+import { URL_SITIO, whatsappUrl } from '../data/sitio'
 
 export const revalidate = 3600
 
+const DESCRIPCION =
+  'Tratamientos de medicina estética para rostro y cuerpo en Mar del Plata: toxina botulínica, rellenos, bioestimulación, mesoterapia y plasma rico en plaquetas.'
+
 export const metadata: Metadata = {
-  title: 'Tratamientos',
-  description:
-    'Tratamientos de medicina estética para rostro y cuerpo en Mar del Plata: toxina botulínica, rellenos, bioestimulación, mesoterapia, plasma rico en plaquetas y más.',
+  title: 'Tratamientos de medicina estética en Mar del Plata',
+  description: DESCRIPCION,
   alternates: { canonical: '/tratamientos' },
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    siteName: 'Antognini Medicina Estética Integral',
+    title: 'Tratamientos de medicina estética en Mar del Plata | Antognini',
+    description: DESCRIPCION,
+    url: '/tratamientos',
+  },
 }
 
 export default function PaginaTratamientos() {
   return (
     <>
+      <JsonLd
+        datos={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: URL_SITIO },
+            { '@type': 'ListItem', position: 2, name: 'Tratamientos', item: `${URL_SITIO}/tratamientos` },
+          ],
+        }}
+      />
       <main id="contenido">
         <section className="pg-hero" id="inicio">
           <div className="hero-glow" aria-hidden="true" />
@@ -44,9 +64,7 @@ export default function PaginaTratamientos() {
           </div>
         </section>
 
-        <Suspense fallback={null}>
-          <ListaTratamientos />
-        </Suspense>
+        <ListaTratamientos />
 
         <section className="sec lista-nota">
           <div className="wrap">

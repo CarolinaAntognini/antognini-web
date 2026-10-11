@@ -480,3 +480,34 @@ export function partirCursiva(texto: string): { texto: string; cursiva: boolean 
     .map((parte, i) => ({ texto: parte, cursiva: i % 2 === 1 }))
     .filter((p) => p.texto.length > 0)
 }
+
+// Descripción que aparece en Google y al compartir el link de cada ficha (entre 120 y 160 caracteres).
+// Se escribe aparte del texto de la ficha para que el resultado de búsqueda diga la ciudad y invite a consultar.
+export const DESCRIPCIONES_META: Record<string, string> = {
+  'toxina-botulinica':
+    'Toxina botulínica en Mar del Plata: relaja las arrugas de expresión con un resultado natural, previa evaluación médica. Consultá por WhatsApp.',
+  'relleno-de-labios':
+    'Relleno de labios con ácido hialurónico en Mar del Plata: hidratación, definición y armonía con volumen a medida. Consultá por WhatsApp.',
+  skinbooster:
+    'Skinbooster en Mar del Plata: hidratación profunda de la piel con ácido hialurónico de baja densidad, sin dar volumen. Consultá por WhatsApp.',
+  'hidroxiapatita-de-calcio':
+    'Hidroxiapatita de calcio en Mar del Plata: bioestimulador de colágeno para ganar firmeza y elasticidad de forma progresiva. Consultá por WhatsApp.',
+  sculptra:
+    'Sculptra en Mar del Plata: bioestimulador de colágeno para restaurar volumen de forma gradual y natural. Consultá por WhatsApp.',
+  dermapen:
+    'Dermapen en Mar del Plata: microagujas que estimulan colágeno y elastina para mejorar textura, poros y marcas. Consultá por WhatsApp.',
+  'mesoterapia-facial':
+    'Mesoterapia facial en Mar del Plata: microinyecciones con activos a medida para hidratar y dar luminosidad a la piel. Consultá por WhatsApp.',
+  mesopeel:
+    'Mesopeel en Mar del Plata: mesoterapia y peeling médico en un mismo tratamiento para renovar la piel. Consultá por WhatsApp.',
+  'plasma-rico-en-plaquetas':
+    'Plasma rico en plaquetas en Mar del Plata: tratamiento con tu propia sangre para la piel y el cuero cabelludo. Consultá por WhatsApp.',
+  'cellbooster-shape':
+    'Cellbooster Shape en Mar del Plata: modela el contorno de papada y óvalo facial y ayuda con la retención de líquidos. Consultá por WhatsApp.',
+  fosfatidilcolina:
+    'Fosfatidilcolina en Mar del Plata: inyectable para reducir la grasa localizada en papada, abdomen y flancos. Consultá por WhatsApp.',
+  'enzimas-lipoliticas':
+    'Enzimas lipolíticas en Mar del Plata: degradan el tejido graso localizado y remodelan el contorno. Consultá por WhatsApp.',
+  'mesoterapia-corporal':
+    'Mesoterapia corporal en Mar del Plata: microinyecciones superficiales para tratar la celulitis en muslos, glúteos y abdomen. Consultá por WhatsApp.',
+}

@@ -114,7 +114,7 @@ export function GiftCard() {
               <span className="lbl">Gift card</span>
               <Image src="/brand/isotipo-blanco.png" alt="" width={900} height={704} aria-hidden="true" />
             </div>
-            <Image className="gcard-logo" src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} />
+            <Image className="gcard-logo" src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} sizes="(max-width: 900px) 70vw, 420px" />
             <div className="gcard-pie">
               <span>Válida por {GIFT_CARD.validezDias} días</span>
               <em>Para: ______</em>

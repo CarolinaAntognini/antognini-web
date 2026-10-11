@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Flecha, Grano, TextoCursiva } from '../../components/Detalles'
 import Footer from '../../components/Footer'
-import { whatsappUrl } from '../../data/sitio'
-import { ETIQUETAS_DATOS, relacionados, tratamientoPorSlug, TRATAMIENTOS } from '../../data/tratamientos'
+import JsonLd from '../../components/JsonLd'
+import { URL_SITIO, whatsappUrl } from '../../data/sitio'
+import { DESCRIPCIONES_META, ETIQUETAS_DATOS, relacionados, tratamientoPorSlug, TRATAMIENTOS } from '../../data/tratamientos'
 
 export const revalidate = 3600
 
@@ -18,11 +19,21 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const t = tratamientoPorSlug(params.slug)
   if (!t) return {}
+  const titulo = `${t.nombre} en Mar del Plata`
+  const descripcion = DESCRIPCIONES_META[t.slug] ?? t.intro
   return {
-    title: t.nombre,
-    description: t.intro,
+    title: titulo,
+    description: descripcion,
     alternates: { canonical: `/tratamientos/${t.slug}` },
-    openGraph: { images: [t.foto.src] },
+    openGraph: {
+      type: 'website',
+      locale: 'es_AR',
+      siteName: 'Antognini Medicina Estética Integral',
+      title: `${titulo} | Antognini`,
+      description: descripcion,
+      url: `/tratamientos/${t.slug}`,
+      images: [t.foto.src],
+    },
   }
 }
 
@@ -41,6 +52,28 @@ export default function FichaTratamiento({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        datos={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Inicio', item: URL_SITIO },
+                { '@type': 'ListItem', position: 2, name: 'Tratamientos', item: `${URL_SITIO}/tratamientos` },
+                { '@type': 'ListItem', position: 3, name: t.nombre, item: `${URL_SITIO}/tratamientos/${t.slug}` },
+              ],
+            },
+            {
+              '@type': 'MedicalProcedure',
+              name: t.nombre,
+              description: DESCRIPCIONES_META[t.slug] ?? t.intro,
+              url: `${URL_SITIO}/tratamientos/${t.slug}`,
+              provider: { '@id': `${URL_SITIO}/#centro` },
+            },
+          ],
+        }}
+      />
       <main id="contenido">
         <section className="pg-hero ficha-hero" id="inicio">
           <div className="hero-glow" aria-hidden="true" />

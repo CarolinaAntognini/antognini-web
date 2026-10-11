@@ -1,0 +1,4 @@
+/** Inserta datos estructurados (schema.org) para Google. */
+export default function JsonLd({ datos }: { datos: object }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datos) }} />
+}
