@@ -24,7 +24,7 @@ export default function Inicio() {
         <Equipo />
         <Contacto />
       </main>
-      <Footer />
+      <Footer conDatos={false} />
     </>
   )
 }

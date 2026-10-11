@@ -77,7 +77,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'El resultado es una expresión más descansada, natural y rejuvenecida, sin perder gestualidad.',
-      'El efecto no es inmediato: comienza a notarse entre las 72 y 96 horas posteriores a la aplicación y alcanza su efecto máximo a los 15 días. Su duración es de entre 3 y 4 meses, según cada paciente.',
+      'El efecto no es inmediato y su duración varía según cada paciente.',
       'Al confirmar el turno, es importante contar con disponibilidad para asistir al control a los 15 días.',
     ],
     foto: { src: '/fotos/trat-toxina.jpg', alt: 'Aplicación de toxina botulínica en la frente', posicion: '50% 30%' },
@@ -106,7 +106,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Ayuda a aportar volumen de forma personalizada, mejorar el contorno labial, corregir pequeñas asimetrías y recuperar la proyección natural del labio.',
-      'El procedimiento es ambulatorio y los resultados son inmediatos, con evolución durante los días posteriores al tratamiento. Puede generar inflamación, sensibilidad o pequeños hematomas transitorios.',
+      'El procedimiento es ambulatorio. Puede generar inflamación, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: { src: '/fotos/trat-relleno-de-labios.jpg', alt: 'Labios con acabado natural', posicion: '50% 45%', ilustrativa: true },
@@ -135,8 +135,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       ideal: 'Ideal para pieles deshidratadas, apagadas o con primeros signos de envejecimiento.',
     },
     detalle: [
-      'Se aplica en el rostro, el cuello, el escote y las manos.',
-      'Se recomiendan de 2 a 3 sesiones, separadas por 3 a 4 semanas, y una sesión de mantenimiento cada 6 a 12 meses.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
     ],
     foto: {
       src: '/fotos/trat-skinbooster.jpg',
@@ -168,7 +167,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
-      'Los resultados comienzan a verse desde el primer mes, mejoran progresivamente y pueden durar entre 12 y 18 meses, dependiendo de cada paciente.',
+      'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
     foto: {
       src: '/fotos/trat-hidroxiapatita-de-calcio.jpg',
@@ -203,8 +202,8 @@ export const TRATAMIENTOS: Tratamiento[] = [
       ideal: 'Ideal para quienes buscan mejorar la firmeza y el volumen de manera progresiva, respetando sus rasgos.',
     },
     detalle: [
-      'Los resultados no son inmediatos: el producto actúa en las semanas posteriores a la sesión, a medida que el cuerpo produce colágeno, y pueden mantenerse hasta 2 años, según cada paciente.',
-      'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel, en las zonas con pérdida de firmeza o volumen.',
+      'El resultado no es inmediato: el producto actúa a medida que el cuerpo produce colágeno, según cada paciente.',
+      'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel.',
     ],
     noApto: 'No indicado durante el embarazo ni la lactancia',
     foto: { src: '/fotos/trat-sculptra.jpg', alt: 'Cuello y escote con piel firme', posicion: '50% 50%', ilustrativa: true },
@@ -233,7 +232,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Estimula la producción de colágeno y elastina, mejorando textura, poros, líneas finas, manchas y marcas de acné.',
-      'Los resultados son progresivos y se recomiendan varias sesiones según la necesidad de cada piel. Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: { src: '/fotos/trat-dermapen.jpg', alt: 'Profesional realizando un tratamiento facial', posicion: '50% 50%' },
@@ -262,7 +261,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Aporta hidratación, luminosidad y mejora la calidad de la piel, ayudando a estimular la producción de colágeno y mejorar la textura, líneas finas y signos de cansancio.',
-      'Los resultados son progresivos y se recomiendan varias sesiones según el objetivo del tratamiento. Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: {
@@ -295,7 +294,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'El peeling favorece la regeneración de la piel, mejorando textura, luminosidad, manchas, poros y signos de envejecimiento. La mesoterapia permite aportar principios activos según la necesidad de cada paciente.',
-      'Los resultados son progresivos y se recomiendan varias sesiones según el diagnóstico y objetivo del tratamiento. Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o descamación leve transitoria.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o descamación leve transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: { src: '/fotos/trat-mesopeel.jpg', alt: 'Tratamiento facial con cuidado de la piel', posicion: '50% 40%' },
@@ -348,7 +347,6 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Contiene ácido hialurónico no reticulado, L-carnitina (metabolismo de grasa) y vitamina C (calidad de piel).',
-      'El protocolo habitual es de 3 sesiones cada 2 a 3 semanas, y luego mantenimiento mensual.',
     ],
     foto: {
       src: '/fotos/trat-cellbooster-shape.jpg',
@@ -380,7 +378,6 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Se aplica mediante inyecciones en la zona a tratar, ayudando a romper las células grasas para que el cuerpo las elimine de forma natural.',
-      'Los resultados son progresivos y suelen requerir varias sesiones, según cada paciente.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: {
@@ -413,8 +410,8 @@ export const TRATAMIENTOS: Tratamiento[] = [
       ],
     },
     detalle: [
-      'Son ideales para zonas pequeñas y medianas como papada, flancos, abdomen, brazos, trocánter y rodillas.',
-      'Los resultados son progresivos y naturales. Se empiezan a notar de 2 a 4 semanas posteriores a la primera sesión, y las sesiones se separan de 15 a 20 días.',
+      'Son ideales para zonas pequeñas y medianas.',
+      'Los resultados son progresivos y naturales.',
     ],
     foto: {
       src: '/fotos/trat-enzimas-lipoliticas.jpg',
@@ -446,8 +443,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       ],
     },
     detalle: [
-      'Se trabaja por zonas (flancos, abdomen, muslos, pantalón de montar). La sesión dura de 20 a 30 minutos, según la zona.',
-      'La distancia entre las sesiones debe ser de 7 a 15 días. Puede haber leve ardor o rojez en la zona tratada, con los puntos marcados por 48 horas.',
+      'Puede haber leve ardor o rojez en la zona tratada, con los puntos marcados por 48 horas.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
     foto: {
