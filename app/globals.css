@@ -1641,6 +1641,41 @@ html.js [data-reveal].in {
   color: var(--fog);
 }
 
+.rs-sec {
+  background: var(--cream);
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+.rs-alt {
+  background: var(--blush);
+}
+.rs-cab {
+  max-width: 760px;
+  margin-bottom: 44px;
+}
+.rs-cab .lbl {
+  color: var(--grey);
+  margin-bottom: 18px;
+}
+.rs-cab .h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.rs-cab .body {
+  margin-top: 18px;
+}
+.rs-sec .ad-grid {
+  margin-top: 0;
+}
+.rs-ver {
+  display: inline-block;
+  margin-top: 36px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .inc-sec {
   background: var(--blush);
 }

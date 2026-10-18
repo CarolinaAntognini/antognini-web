@@ -57,6 +57,8 @@ export type Tratamiento = {
   foto?: Foto
   /** Fotos de pacientes, ya recortadas sin los ojos. Solo para los tratamientos que tienen */
   antesDespues?: ParAntesDespues[]
+  /** Texto corto del cambio que se ve en las fotos (página de resultados) */
+  resultado?: string
   /** Solo para tratamientos que son un conjunto de otros: slugs de las fichas que puede incluir el plan */
   incluye?: string[]
 }
@@ -99,6 +101,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El plan puede ajustarse a medida que se ven los resultados, siempre de forma gradual y natural.',
     ],
     incluye: ['toxina-botulinica', 'relleno-de-labios', 'skinbooster', 'hidroxiapatita-de-calcio', 'sculptra'],
+    resultado: 'Perfil más equilibrado, con el mentón y la mandíbula más definidos.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/armonizacion-1-antes.jpg',
@@ -136,6 +139,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El efecto no es inmediato y su duración varía según cada paciente.',
       'Al confirmar el turno, es importante contar con disponibilidad para asistir al control a los 15 días.',
     ],
+    resultado: 'Líneas de expresión de la frente más suaves y una mirada más descansada, sin perder naturalidad.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/toxina-1-antes.jpg',
@@ -221,6 +225,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El procedimiento es ambulatorio. Puede generar inflamación, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Labios con más volumen, contorno e hidratación, con un resultado natural.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/labios-1-antes.jpg',
@@ -303,6 +308,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
       'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
+    resultado: 'Mejilla y mandíbula con las arrugas menos marcadas y más firmeza.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/radiesse-1-antes.jpg',
@@ -445,6 +451,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Zona bajo el ojo con mejor aspecto: ojeras más atenuadas y piel más luminosa.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/nctf-1-antes.jpg',
@@ -482,6 +489,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o descamación leve transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Manchas en la mejilla atenuadas y tono de piel más parejo.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/mesopeel-1-antes.jpg',
@@ -550,6 +558,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Piel más uniforme, con menos marcas y mejor textura.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/exosomas-1-antes.jpg',
@@ -587,6 +596,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Puede realizarse facial (rostro y cuello), capilar, o facial y capilar en una misma consulta, y también combinado con Dermapen.',
       'Se obtiene a partir de una pequeña muestra de sangre, que se centrifuga para separar el plasma rico en plaquetas.',
     ],
+    resultado: 'En el rostro, piel más luminosa y uniforme; en el cuero cabelludo, cabello con más densidad en la zona de la raya.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/plasma-1-antes.jpg',
@@ -623,6 +633,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     detalle: [
       'Contiene ácido hialurónico no reticulado, L-carnitina (metabolismo de grasa) y vitamina C (calidad de piel).',
     ],
+    resultado: 'Contorno de la papada y la mandíbula más definido, con la piel más firme.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/cellbooster-1-antes.jpg',
@@ -676,6 +687,21 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Se aplica mediante inyecciones en la zona a tratar, ayudando a romper las células grasas para que el cuerpo las elimine de forma natural.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Menos grasa localizada y contorno más definido en la cintura, los flancos y los muslos.',
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/fosfatidilcolina-1-antes.jpg',
+        despues: '/fotos/antes-despues/fosfatidilcolina-1-despues.jpg',
+        alt: 'Cintura y flancos antes y después de la fosfatidilcolina',
+        proporcion: '3 / 4',
+      },
+      {
+        antes: '/fotos/antes-despues/fosfatidilcolina-2-antes.jpg',
+        despues: '/fotos/antes-despues/fosfatidilcolina-2-despues.jpg',
+        alt: 'Rodillas y muslos antes y después de la fosfatidilcolina',
+        proporcion: '2 / 1',
+      },
+    ],
     foto: { src: '/fotos/trat-fosfatidilcolina.jpg', alt: 'Aplicación inyectable en el abdomen', posicion: '50% 50%' },
   },
   {
@@ -704,6 +730,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Son ideales para zonas pequeñas y medianas.',
       'Los resultados son progresivos y naturales.',
     ],
+    resultado: 'Abdomen y cadera con el contorno más definido.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/enzimas-1-antes.jpg',
@@ -740,6 +767,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Puede haber leve ardor o rojez en la zona tratada, con los puntos marcados por 48 horas.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    resultado: 'Muslo con menos aspecto de piel de naranja y piel más lisa.',
     antesDespues: [
       {
         antes: '/fotos/antes-despues/corporal-1-antes.jpg',

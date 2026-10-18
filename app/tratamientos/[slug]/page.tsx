@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import AntesDespues from '../../components/AntesDespues'
 import { Flecha, Grano, TextoCursiva } from '../../components/Detalles'
 import Footer from '../../components/Footer'
 import JsonLd from '../../components/JsonLd'
@@ -209,20 +210,7 @@ export default function FichaTratamiento({ params }: Props) {
               <h2 className="h2">
                 Algunos <em>resultados.</em>
               </h2>
-              <div className="ad-grid">
-                {t.antesDespues.map((par) => (
-                  <figure className="ad-par" key={par.antes}>
-                    <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
-                      <Image src={par.antes} alt={`${par.alt}: antes`} fill loading="eager" sizes="(max-width: 900px) 46vw, 300px" />
-                      <span className="ad-tag">Antes</span>
-                    </div>
-                    <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
-                      <Image src={par.despues} alt={`${par.alt}: después`} fill loading="eager" sizes="(max-width: 900px) 46vw, 300px" />
-                      <span className="ad-tag">Después</span>
-                    </div>
-                  </figure>
-                ))}
-              </div>
+              <AntesDespues pares={t.antesDespues} />
             </div>
           </section>
         )}
