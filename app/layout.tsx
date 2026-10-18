@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' },
   alternates: { canonical: '/' },
+  // Código de verificación de Google Search Console (es público)
+  verification: { google: '5xFD2xA4QslnbbzaxFFZaB8VfS44WRrD_wOpFK9aM_Q' },
 }
 
 export const viewport: Viewport = {
