@@ -13,7 +13,7 @@ export function Filosofia() {
     },
     {
       titulo: 'Resultados naturales',
-      texto: 'Realzamos tu belleza respetando tu esencia, sin perder tu gestualidad ni tus rasgos.',
+      texto: 'Buscamos un aspecto descansado y armónico, sin perder tu gestualidad ni tus rasgos.',
     },
     {
       titulo: 'Criterio médico',
@@ -116,7 +116,6 @@ export function GiftCard() {
             </div>
             <Image className="gcard-logo" src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} sizes="(max-width: 900px) 70vw, 420px" />
             <div className="gcard-pie">
-              <span>Válida por {GIFT_CARD.validezDias} días</span>
               <em>Para: ______</em>
             </div>
           </div>
@@ -127,7 +126,7 @@ export function GiftCard() {
             Regalá <em>un tratamiento.</em>
           </h2>
           <p className="body gift-p">
-            Una gift card para regalar cualquier tratamiento. Se puede usar durante {GIFT_CARD.validezDias} días.
+            Un regalo pensado para quien querés cuidar.
           </p>
           <dl className="gift-datos">
             <div>

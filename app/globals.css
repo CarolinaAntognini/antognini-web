@@ -1600,6 +1600,45 @@ html.js [data-reveal].in {
   color: var(--fog);
 }
 
+.ad-sec {
+  background: var(--blush);
+}
+.ad-sec .wrap > .lbl {
+  color: var(--grey);
+  margin-bottom: 28px;
+}
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 32px;
+  margin-top: 56px;
+}
+.ad-par {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.ad-foto {
+  position: relative;
+  overflow: hidden;
+  background: var(--fog);
+}
+.ad-foto img {
+  object-fit: cover;
+}
+.ad-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  background: rgba(29, 29, 29, 0.78);
+  color: var(--cream);
+  font-family: var(--f-label), serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 .otros-sec {
   background: var(--cream);
   padding-top: 96px;
@@ -1661,6 +1700,11 @@ html.js [data-reveal].in {
   }
   .sec {
     padding: 80px 24px;
+  }
+  .ad-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 40px;
   }
   .hide-m {
     display: none !important;

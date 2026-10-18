@@ -32,7 +32,7 @@ export function generateMetadata({ params }: Props): Metadata {
       title: `${titulo} | Antognini`,
       description: descripcion,
       url: `/tratamientos/${t.slug}`,
-      images: [t.foto.src],
+      images: [t.foto?.src ?? '/opengraph-image.png'],
     },
   }
 }
@@ -103,16 +103,24 @@ export default function FichaTratamiento({ params }: Props) {
               </div>
             </div>
             <div className="ficha-arco hide-m">
-              <Image
-                src={t.foto.src}
-                alt={t.foto.alt}
-                fill
-                priority
-                sizes="(max-width: 900px) 0px, 420px"
-                style={{ objectPosition: t.foto.posicion ?? '50% 50%' }}
-              />
-              <div className="ficha-velo" aria-hidden="true" />
-              {t.foto.ilustrativa && <span className="ficha-ilustrativa">Imagen ilustrativa</span>}
+              {t.foto ? (
+                <>
+                  <Image
+                    src={t.foto.src}
+                    alt={t.foto.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 900px) 0px, 420px"
+                    style={{ objectPosition: t.foto.posicion ?? '50% 50%' }}
+                  />
+                  <div className="ficha-velo" aria-hidden="true" />
+                  {t.foto.ilustrativa && <span className="ficha-ilustrativa">Imagen ilustrativa</span>}
+                </>
+              ) : (
+                <div className="ficha-vacia">
+                  <Image src="/brand/isotipo-blanco.png" alt="" width={900} height={704} aria-hidden="true" />
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -168,6 +176,31 @@ export default function FichaTratamiento({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {t.antesDespues && (
+          <section className="sec ad-sec">
+            <div className="wrap">
+              <p className="lbl">Antes y después</p>
+              <h2 className="h2">
+                Algunos <em>resultados.</em>
+              </h2>
+              <div className="ad-grid">
+                {t.antesDespues.map((par, i) => (
+                  <figure className="ad-par" key={par.antes} data-reveal={(i % 2) + 1}>
+                    <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
+                      <Image src={par.antes} alt={`${par.alt}: antes`} fill sizes="(max-width: 900px) 46vw, 300px" />
+                      <span className="ad-tag">Antes</span>
+                    </div>
+                    <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
+                      <Image src={par.despues} alt={`${par.alt}: después`} fill sizes="(max-width: 900px) 46vw, 300px" />
+                      <span className="ad-tag">Después</span>
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="sec ficha-cta" data-reveal>
           <Grano id="grano-ficha-cta" />

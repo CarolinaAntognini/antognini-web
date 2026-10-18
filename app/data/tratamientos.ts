@@ -9,6 +9,11 @@
 // hidroxiapatita, Sculptra, Dermapen, mesoterapia facial, Mesopeel, plasma, fosfatidilcolina,
 // enzimas (sesiones) y mesoterapia corporal (sesiones) NO salen de las fichas de la doctora:
 // son los rangos habituales de cada tratamiento y ella tiene que validarlos.
+// Peeling, Mesoterapia NCTF, Mesobotox y Exosomas no tienen ficha de la doctora: todo su contenido sale de información
+// pública general (protocolo del fabricante en NCTF) y ella tiene que validarlo completo. En Exosomas, además,
+// confirmar el registro del producto ante ANMAT antes de comunicarlo.
+// La foto principal es una foto general del consultorio o del producto. Los antes y después van aparte y
+// siempre sin los ojos de la persona; no se usan fotos de glúteos ni de zonas íntimas.
 
 export type Zona = 'Rostro' | 'Cuerpo' | 'Cabello'
 
@@ -18,6 +23,14 @@ export type Foto = {
   posicion?: string
   /** Imagen ilustrativa (no es una foto real del consultorio) */
   ilustrativa?: boolean
+}
+
+export type ParAntesDespues = {
+  antes: string
+  despues: string
+  alt: string
+  /** Proporción de cada foto, por ejemplo '4 / 3' o '1 / 1' */
+  proporcion: string
 }
 
 export type Tratamiento = {
@@ -40,7 +53,10 @@ export type Tratamiento = {
   /** Cómo es el tratamiento (párrafos) */
   detalle: string[]
   noApto?: string
-  foto: Foto
+  /** Foto principal (general, sin pacientes identificables). Si falta, la ficha muestra el panel con el isotipo */
+  foto?: Foto
+  /** Fotos de pacientes, ya recortadas sin los ojos. Solo para los tratamientos que tienen */
+  antesDespues?: ParAntesDespues[]
 }
 
 export const ETIQUETAS_DATOS = {
@@ -80,7 +96,63 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El efecto no es inmediato y su duración varía según cada paciente.',
       'Al confirmar el turno, es importante contar con disponibilidad para asistir al control a los 15 días.',
     ],
-    foto: { src: '/fotos/trat-toxina.jpg', alt: 'Aplicación de toxina botulínica en la frente', posicion: '50% 30%' },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/toxina-1-antes.jpg',
+        despues: '/fotos/antes-despues/toxina-1-despues.jpg',
+        alt: 'Frente antes y después de la toxina botulínica, caso 1',
+        proporcion: '4 / 3',
+      },
+      {
+        antes: '/fotos/antes-despues/toxina-2-antes.jpg',
+        despues: '/fotos/antes-despues/toxina-2-despues.jpg',
+        alt: 'Frente antes y después de la toxina botulínica, caso 2',
+        proporcion: '4 / 3',
+      },
+      {
+        antes: '/fotos/antes-despues/toxina-3-antes.jpg',
+        despues: '/fotos/antes-despues/toxina-3-despues.jpg',
+        alt: 'Frente antes y después de la toxina botulínica, caso 3',
+        proporcion: '4 / 3',
+      },
+      {
+        antes: '/fotos/antes-despues/toxina-4-antes.jpg',
+        despues: '/fotos/antes-despues/toxina-4-despues.jpg',
+        alt: 'Frente antes y después de la toxina botulínica, caso 4',
+        proporcion: '4 / 3',
+      },
+    ],
+    foto: { src: '/fotos/trat-toxina.jpg', alt: 'Aplicación de toxina botulínica en la zona de la sien', posicion: '50% 50%' },
+  },
+  {
+    slug: 'mesobotox',
+    nombre: 'Mesobotox',
+    zonas: ['Rostro'],
+    resumen: 'Microdosis de toxina botulínica en la piel para mejorar su textura, el brillo y los poros.',
+    intro:
+      'Es una técnica de microgotas de toxina botulínica aplicadas de forma superficial en la piel, pensada para mejorar su calidad: textura, poros, brillo y líneas finas, sin perder naturalidad en la expresión.',
+    datos: {
+      sesiones: '1 sesión',
+      entreSesiones: 'Cada 3 a 4 meses, cuando termina el efecto',
+      resultados: 'Piel más uniforme y con menos brillo. El efecto se nota de forma gradual',
+      zonas: 'Rostro',
+    },
+    sirve: {
+      encabezado: 'Una piel más *uniforme*, fina y luminosa.',
+      items: [
+        'Mejorar la textura y la uniformidad de la piel',
+        'Disminuir la apariencia de los poros',
+        'Reducir el brillo por exceso de grasa',
+        'Suavizar líneas finas',
+      ],
+      ideal: 'Ideal para pieles con poros marcados, brillo o textura irregular.',
+    },
+    detalle: [
+      'Se aplican múltiples microgotas de toxina botulínica a muy baja concentración, distribuidas de manera uniforme en la zona a tratar.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
+    ],
+    noApto: NO_APTO_EMBARAZADAS,
+    foto: { src: '/fotos/trat-mesobotox.jpg', alt: 'Aplicación de microgotas con una jeringa en la mejilla', posicion: '50% 50%' },
   },
   {
     slug: 'relleno-de-labios',
@@ -109,7 +181,33 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El procedimiento es ambulatorio. Puede generar inflamación, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: { src: '/fotos/trat-relleno-de-labios.jpg', alt: 'Labios con acabado natural', posicion: '50% 45%', ilustrativa: true },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/labios-1-antes.jpg',
+        despues: '/fotos/antes-despues/labios-1-despues.jpg',
+        alt: 'Labios antes y después del relleno, caso 1',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/labios-2-antes.jpg',
+        despues: '/fotos/antes-despues/labios-2-despues.jpg',
+        alt: 'Labios antes y después del relleno, caso 2',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/labios-3-antes.jpg',
+        despues: '/fotos/antes-despues/labios-3-despues.jpg',
+        alt: 'Labios antes y después del relleno, caso 3',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/labios-4-antes.jpg',
+        despues: '/fotos/antes-despues/labios-4-despues.jpg',
+        alt: 'Labios antes y después del relleno, caso 4',
+        proporcion: '1 / 1',
+      },
+    ],
+    foto: { src: '/fotos/trat-relleno-de-labios.jpg', alt: 'Aplicación de relleno en los labios', posicion: '50% 50%' },
   },
   {
     slug: 'skinbooster',
@@ -137,11 +235,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     detalle: [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
     ],
-    foto: {
-      src: '/fotos/trat-skinbooster.jpg',
-      alt: 'Aplicación de un tratamiento inyectable en el rostro',
-      posicion: '50% 45%',
-    },
+    foto: { src: '/fotos/trat-skinbooster.jpg', alt: 'Aplicación de un tratamiento inyectable en el rostro', posicion: '50% 50%' },
   },
   {
     slug: 'hidroxiapatita-de-calcio',
@@ -169,12 +263,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
       'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
-    foto: {
-      src: '/fotos/trat-hidroxiapatita-de-calcio.jpg',
-      alt: 'Perfil de un rostro con piel firme y luminosa',
-      posicion: '50% 40%',
-      ilustrativa: true,
-    },
+    foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Cajas de Radiesse', posicion: '50% 50%' },
   },
   {
     // Ficha armada con información general pública (no viene de una ficha de la doctora):
@@ -186,7 +275,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
     intro:
       'Sculptra es un bioestimulador de colágeno a base de ácido poli-L-láctico, un material biocompatible y reabsorbible. En lugar de rellenar de inmediato, estimula a la piel a producir su propio colágeno para recuperar firmeza y volumen de forma gradual y natural.',
     datos: {
-      sesiones: '2 a 4 sesiones',
+      sesiones: '1 a 3 sesiones',
       entreSesiones: '4 a 6 semanas',
       resultados: 'Graduales, durante las semanas siguientes. Pueden durar hasta 2 años',
       zonas: 'Rostro y cuerpo, en zonas con pérdida de firmeza o volumen',
@@ -206,7 +295,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel.',
     ],
     noApto: 'No indicado durante el embarazo ni la lactancia',
-    foto: { src: '/fotos/trat-sculptra.jpg', alt: 'Cuello y escote con piel firme', posicion: '50% 50%', ilustrativa: true },
+    foto: { src: '/fotos/trat-sculptra.jpg', alt: 'Caja de Sculptra', posicion: '50% 50%' },
   },
   {
     slug: 'dermapen',
@@ -235,7 +324,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: { src: '/fotos/trat-dermapen.jpg', alt: 'Profesional realizando un tratamiento facial', posicion: '50% 50%' },
+    foto: { src: '/fotos/trat-dermapen.jpg', alt: 'Dermapen aplicado en la mejilla', posicion: '50% 50%' },
   },
   {
     slug: 'mesoterapia-facial',
@@ -264,11 +353,45 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: {
-      src: '/fotos/trat-mesoterapia-facial.jpg',
-      alt: 'Limpieza facial con algodón durante un tratamiento',
-      posicion: '50% 50%',
+    foto: { src: '/fotos/trat-mesoterapia-facial.jpg', alt: 'Aplicación de mesoterapia facial con un algodón de apoyo', posicion: '50% 50%' },
+  },
+  {
+    slug: 'mesoterapia-nctf',
+    nombre: 'Mesoterapia NCTF',
+    zonas: ['Rostro'],
+    resumen: 'Revitalización de la piel con ácido hialurónico, vitaminas y otros activos.',
+    intro:
+      'Es un tratamiento de mesoterapia que aplica microinyecciones de un complejo de ácido hialurónico no reticulado, vitaminas, minerales y antioxidantes para revitalizar e hidratar la piel desde adentro.',
+    datos: {
+      sesiones: '3 a 5 sesiones',
+      entreSesiones: 'Cada 15 días al comienzo, luego cada mes',
+      resultados: 'Piel más hidratada, luminosa y con mejor textura. Mantenimiento cada 3 meses',
+      zonas: 'Rostro, ojeras, cuello, escote y manos',
     },
+    sirve: {
+      encabezado: 'Una piel *revitalizada*, hidratada y luminosa.',
+      items: [
+        'Hidratar la piel en profundidad',
+        'Mejorar la luminosidad y la textura',
+        'Atenuar líneas finas, ojeras y signos de cansancio',
+        'Revitalizar pieles opacas o deshidratadas',
+      ],
+      ideal: 'Ideal para pieles cansadas, opacas o con primeros signos de envejecimiento.',
+    },
+    detalle: [
+      'Se aplica mediante microinyecciones superficiales, con activos que ayudan a estimular la producción de colágeno.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
+    ],
+    noApto: NO_APTO_EMBARAZADAS,
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/nctf-1-antes.jpg',
+        despues: '/fotos/antes-despues/nctf-1-despues.jpg',
+        alt: 'Zona bajo el ojo antes y después de la Mesoterapia NCTF para ojeras',
+        proporcion: '4 / 3',
+      },
+    ],
+    foto: { src: '/fotos/trat-mesoterapia-nctf.jpg', alt: 'Caja de NCTF 135 HA', posicion: '50% 50%' },
   },
   {
     slug: 'mesopeel',
@@ -297,7 +420,67 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o descamación leve transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: { src: '/fotos/trat-mesopeel.jpg', alt: 'Tratamiento facial con cuidado de la piel', posicion: '50% 40%' },
+    foto: { src: '/fotos/trat-mesopeel.jpg', alt: 'Ampolla de tratamiento en el consultorio', posicion: '50% 50%' },
+  },
+  {
+    slug: 'peeling',
+    nombre: 'Peeling',
+    zonas: ['Rostro'],
+    resumen: 'Exfoliación médica controlada para renovar la piel y mejorar su textura y luminosidad.',
+    intro:
+      'Es la aplicación de una solución con ácidos que exfolia la piel de forma controlada, para renovar sus capas superficiales y mejorar la textura, la luminosidad y la uniformidad del tono.',
+    datos: {
+      sesiones: '4 a 6 sesiones',
+      entreSesiones: 'Cada 2 a 4 semanas',
+      resultados: 'Progresivos: más luminosidad y textura más uniforme',
+      zonas: 'Rostro',
+    },
+    sirve: {
+      encabezado: 'Una piel más *suave*, pareja y luminosa.',
+      items: [
+        'Renovar las capas superficiales de la piel',
+        'Mejorar la textura y la luminosidad',
+        'Atenuar manchas, marcas y poros',
+        'Unificar el tono de la piel',
+      ],
+      ideal: 'Ideal para pieles opacas, con manchas, marcas o textura irregular.',
+    },
+    detalle: [
+      'El ácido y su intensidad se eligen según el tipo de piel y el objetivo, en un procedimiento superficial y controlado.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento, descamación leve y sensibilidad transitoria.',
+    ],
+    noApto: NO_APTO_EMBARAZADAS,
+    foto: { src: '/fotos/trat-peeling.jpg', alt: 'Profesional realizando un tratamiento facial', posicion: '50% 50%' },
+  },
+  {
+    slug: 'exosomas',
+    nombre: 'Exosomas',
+    zonas: ['Rostro'],
+    resumen: 'Bioactivos con exosomas para potenciar la regeneración y la calidad de la piel.',
+    intro:
+      'Es un tratamiento que aplica exosomas, pequeñas vesículas que transportan señales entre las células, para estimular la regeneración de la piel y mejorar su calidad. Suele combinarse con técnicas como Dermapen.',
+    datos: {
+      sesiones: '3 a 4 sesiones',
+      entreSesiones: 'Cada 2 a 4 semanas',
+      resultados: 'Progresivos: piel más luminosa, firme y con mejor textura',
+      zonas: 'Rostro',
+    },
+    sirve: {
+      encabezado: 'Una piel *regenerada*, más luminosa y firme.',
+      items: [
+        'Favorecer la regeneración y la reparación de la piel',
+        'Mejorar la textura y la luminosidad',
+        'Potenciar la firmeza y la elasticidad',
+        'Atenuar líneas finas y signos de envejecimiento',
+      ],
+      ideal: 'Ideal para pieles opacas, con signos de envejecimiento o textura irregular.',
+    },
+    detalle: [
+      'Se aplican sobre la piel previamente preparada, en general combinados con microagujas, para que los activos lleguen a las capas donde actúan.',
+      'Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
+    ],
+    noApto: NO_APTO_EMBARAZADAS,
+    foto: { src: '/fotos/trat-exosomas.jpg', alt: 'Caja con ampollas de tratamiento', posicion: '50% 50%' },
   },
   {
     slug: 'plasma-rico-en-plaquetas',
@@ -326,7 +509,21 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Puede realizarse facial (rostro y cuello), capilar, o facial y capilar en una misma consulta, y también combinado con Dermapen.',
       'Se obtiene a partir de una pequeña muestra de sangre, que se centrifuga para separar el plasma rico en plaquetas.',
     ],
-    foto: { src: '/fotos/trat-prp.jpg', alt: 'Centrífuga para obtener plasma rico en plaquetas', posicion: '50% 50%' },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/plasma-1-antes.jpg',
+        despues: '/fotos/antes-despues/plasma-1-despues.jpg',
+        alt: 'Rostro antes y después del plasma rico en plaquetas facial',
+        proporcion: '3 / 2',
+      },
+      {
+        antes: '/fotos/antes-despues/plasma-2-antes.jpg',
+        despues: '/fotos/antes-despues/plasma-2-despues.jpg',
+        alt: 'Cuero cabelludo antes y después del plasma rico en plaquetas capilar',
+        proporcion: '1 / 1',
+      },
+    ],
+    foto: { src: '/fotos/trat-prp.jpg', alt: 'Aplicación de plasma rico en plaquetas en el rostro', posicion: '50% 50%' },
   },
   {
     slug: 'cellbooster-shape',
@@ -348,12 +545,33 @@ export const TRATAMIENTOS: Tratamiento[] = [
     detalle: [
       'Contiene ácido hialurónico no reticulado, L-carnitina (metabolismo de grasa) y vitamina C (calidad de piel).',
     ],
-    foto: {
-      src: '/fotos/trat-cellbooster-shape.jpg',
-      alt: 'Mentón y mandíbula con contorno definido',
-      posicion: '50% 45%',
-      ilustrativa: true,
-    },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/cellbooster-1-antes.jpg',
+        despues: '/fotos/antes-despues/cellbooster-1-despues.jpg',
+        alt: 'Rostro y cuello antes y después de Cellbooster Shape, caso 1',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/cellbooster-2-antes.jpg',
+        despues: '/fotos/antes-despues/cellbooster-2-despues.jpg',
+        alt: 'Rostro y cuello antes y después de Cellbooster Shape, caso 2',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/cellbooster-3-antes.jpg',
+        despues: '/fotos/antes-despues/cellbooster-3-despues.jpg',
+        alt: 'Rostro y cuello antes y después de Cellbooster Shape, caso 3',
+        proporcion: '1 / 1',
+      },
+      {
+        antes: '/fotos/antes-despues/cellbooster-4-antes.jpg',
+        despues: '/fotos/antes-despues/cellbooster-4-despues.jpg',
+        alt: 'Rostro y cuello antes y después de Cellbooster Shape, caso 4',
+        proporcion: '1 / 1',
+      },
+    ],
+    foto: { src: '/fotos/trat-cellbooster-shape.jpg', alt: 'Caja de Cellbooster Shape', posicion: '50% 50%' },
   },
   {
     slug: 'fosfatidilcolina',
@@ -380,12 +598,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Se aplica mediante inyecciones en la zona a tratar, ayudando a romper las células grasas para que el cuerpo las elimine de forma natural.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: {
-      src: '/fotos/trat-fosfatidilcolina.jpg',
-      alt: 'Cintura y abdomen en una vista lateral',
-      posicion: '50% 50%',
-      ilustrativa: true,
-    },
+    foto: { src: '/fotos/trat-fosfatidilcolina.jpg', alt: 'Aplicación inyectable en el abdomen', posicion: '50% 50%' },
   },
   {
     slug: 'enzimas-lipoliticas',
@@ -413,12 +626,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Son ideales para zonas pequeñas y medianas.',
       'Los resultados son progresivos y naturales.',
     ],
-    foto: {
-      src: '/fotos/trat-enzimas-lipoliticas.jpg',
-      alt: 'Silueta de espalda, cintura y caderas',
-      posicion: '50% 50%',
-      ilustrativa: true,
-    },
+    foto: { src: '/fotos/trat-enzimas-lipoliticas.jpg', alt: 'Profesional aplicando enzimas lipolíticas en el abdomen', posicion: '50% 50%' },
   },
   {
     slug: 'mesoterapia-corporal',
@@ -446,12 +654,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Puede haber leve ardor o rojez en la zona tratada, con los puntos marcados por 48 horas.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: {
-      src: '/fotos/trat-mesoterapia-corporal.jpg',
-      alt: 'Cadera y muslo con piel suave',
-      posicion: '50% 50%',
-      ilustrativa: true,
-    },
+    foto: { src: '/fotos/trat-mesoterapia-corporal.jpg', alt: 'Jeringa lista para la aplicación', posicion: '50% 50%' },
   },
 ]
 
@@ -484,6 +687,14 @@ export const DESCRIPCIONES_META: Record<string, string> = {
     'Toxina botulínica en Mar del Plata: relaja las arrugas de expresión con un resultado natural, previa evaluación médica. Consultá por WhatsApp.',
   'relleno-de-labios':
     'Relleno de labios con ácido hialurónico en Mar del Plata: hidratación, definición y armonía con volumen a medida. Consultá por WhatsApp.',
+  exosomas:
+    'Exosomas en Mar del Plata: tratamiento para estimular la regeneración y mejorar la calidad de la piel. Consultá por WhatsApp.',
+  mesobotox:
+    'Mesobotox en Mar del Plata: microdosis de toxina botulínica para mejorar la textura de la piel, los poros y el brillo. Consultá por WhatsApp.',
+  'mesoterapia-nctf':
+    'Mesoterapia NCTF en Mar del Plata: microinyecciones con ácido hialurónico y vitaminas para hidratar y revitalizar la piel. Consultá por WhatsApp.',
+  peeling:
+    'Peeling médico en Mar del Plata: exfoliación controlada para renovar la piel y mejorar su textura y luminosidad. Consultá por WhatsApp.',
   skinbooster:
     'Skinbooster en Mar del Plata: hidratación profunda de la piel con ácido hialurónico de baja densidad, sin dar volumen. Consultá por WhatsApp.',
   'hidroxiapatita-de-calcio':

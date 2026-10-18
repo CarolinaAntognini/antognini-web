@@ -66,17 +66,6 @@ export default function PaginaTratamientos() {
 
         <ListaTratamientos />
 
-        <section className="sec lista-nota">
-          <div className="wrap">
-            <p className="body">
-              También trabajamos Peeling, Mesoterapia NCTF y Mesobotox.{' '}
-              <a href={whatsappUrl('Hola, quiero consultar por un tratamiento')} target="_blank" rel="noopener noreferrer">
-                Consultanos por WhatsApp.
-              </a>
-            </p>
-          </div>
-        </section>
-
         <section className="sec cta-eleccion" data-reveal>
           <div className="wrap cta-eleccion-in">
             <Image src="/brand/isotipo-negro.png" alt="" width={900} height={704} aria-hidden="true" />
