@@ -5,15 +5,11 @@
 // la lista, los filtros y la página de cada uno se arman solos al sumar uno nuevo.
 // En los textos, lo que va entre *asteriscos* se muestra en cursiva.
 //
-// OJO: en "datos", la cantidad de sesiones y el tiempo entre sesiones de toxina, relleno de labios,
-// hidroxiapatita, Sculptra, Dermapen, mesoterapia facial, Mesopeel, plasma, fosfatidilcolina,
-// enzimas (sesiones) y mesoterapia corporal (sesiones) NO salen de las fichas de la doctora:
-// son los rangos habituales de cada tratamiento y ella tiene que validarlos.
-// Armonización facial, Peeling, Mesoterapia NCTF, Mesobotox y Exosomas no tienen ficha de la doctora: todo su contenido sale de información
-// pública general (protocolo del fabricante en NCTF) y ella tiene que validarlo completo. En Exosomas, además,
-// confirmar el registro del producto ante ANMAT antes de comunicarlo.
+// Contenido validado por la doctora el 18/10/2026 (incluye las fichas de Armonización facial, Peeling,
+// Mesoterapia NCTF, Mesobotox y Exosomas, y los rangos de sesiones). Cualquier cambio de sesiones, intervalos
+// o resultados tiene que pasar por ella. En Exosomas, confirmar además el registro del producto ante ANMAT.
 // La foto principal es una foto general del consultorio o del producto. Los antes y después van aparte y
-// siempre sin los ojos de la persona; no se usan fotos de glúteos ni de zonas íntimas.
+// no muestran los ojos abiertos de la persona; no se usan fotos de glúteos ni de zonas íntimas.
 
 export type Zona = 'Rostro' | 'Cuerpo' | 'Cabello'
 
@@ -279,6 +275,15 @@ export const TRATAMIENTOS: Tratamiento[] = [
     },
     detalle: [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o pequeños hematomas transitorios.',
+    ],
+    resultado: 'Piel más hidratada y uniforme, con las líneas finas del contorno del ojo menos marcadas.',
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/skinbooster-1-antes.jpg',
+        despues: '/fotos/antes-despues/skinbooster-1-despues.jpg',
+        alt: 'Piel del contorno del ojo antes y después del Skinbooster',
+        proporcion: '4 / 3',
+      },
     ],
     foto: { src: '/fotos/trat-skinbooster.jpg', alt: 'Aplicación de un tratamiento inyectable en el rostro', posicion: '50% 50%' },
   },
