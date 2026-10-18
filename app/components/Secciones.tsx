@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { GIFT_CARD } from '../data/promociones'
 import { EQUIPO } from '../data/equipo'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
+import { MARCAS } from '../data/marcas'
 import { FlechaLarga, Grano } from './Detalles'
 
 export function Filosofia() {
@@ -198,6 +199,28 @@ export function Equipo() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+export function Marcas() {
+  return (
+    <section id="marcas" className="sec marcas">
+      <div className="wrap">
+        <div className="marcas-cab" data-reveal>
+          <p className="lbl">Marcas</p>
+          <h2 className="h2">
+            Las marcas <em>con las que trabajamos.</em>
+          </h2>
+        </div>
+        <ul className="marcas-lista" data-reveal="2">
+          {MARCAS.map((m) => (
+            <li className="marca" key={m.nombre}>
+              {m.logo ? <Image src={m.logo} alt={m.nombre} width={220} height={60} /> : <span>{m.nombre}</span>}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

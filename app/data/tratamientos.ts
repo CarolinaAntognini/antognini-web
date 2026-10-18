@@ -99,7 +99,15 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'El plan puede ajustarse a medida que se ven los resultados, siempre de forma gradual y natural.',
     ],
     incluye: ['toxina-botulinica', 'relleno-de-labios', 'skinbooster', 'hidroxiapatita-de-calcio', 'sculptra'],
-    foto: { src: '/fotos/trat-armonizacion-facial.jpg', alt: 'La doctora realizando un tratamiento facial', posicion: '50% 50%' },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/armonizacion-1-antes.jpg',
+        despues: '/fotos/antes-despues/armonizacion-1-despues.jpg',
+        alt: 'Perfil con el mentón y la mandíbula antes y después de la armonización facial',
+        proporcion: '2 / 3',
+      },
+    ],
+    foto: { src: '/fotos/trat-armonizacion-facial.jpg', alt: 'Perfil de un rostro armonizado', posicion: '50% 50%' },
   },
   {
     slug: 'toxina-botulinica',
