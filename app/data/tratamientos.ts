@@ -303,6 +303,14 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
       'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/radiesse-1-antes.jpg',
+        despues: '/fotos/antes-despues/radiesse-1-despues.jpg',
+        alt: 'Perfil de la mejilla y la mandíbula antes y después de la hidroxiapatita de calcio',
+        proporcion: '3 / 2',
+      },
+    ],
     foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Persona sosteniendo cajas de Radiesse', posicion: '50% 50%' },
   },
   {
@@ -335,6 +343,20 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Se aplica en el consultorio mediante inyecciones en las capas profundas de la piel.',
     ],
     noApto: 'No indicado durante el embarazo ni la lactancia',
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/sculptra-1-antes.jpg',
+        despues: '/fotos/antes-despues/sculptra-1-despues.jpg',
+        alt: 'Cuello y escote antes y después de Sculptra',
+        proporcion: '2 / 3',
+      },
+      {
+        antes: '/fotos/antes-despues/sculptra-2-antes.jpg',
+        despues: '/fotos/antes-despues/sculptra-2-despues.jpg',
+        alt: 'Abdomen antes y después de Sculptra',
+        proporcion: '1 / 1',
+      },
+    ],
     foto: { src: '/fotos/trat-sculptra.jpg', alt: 'Caja de Sculptra', posicion: '50% 50%' },
   },
   {
