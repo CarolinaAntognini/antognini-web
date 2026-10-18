@@ -4,6 +4,7 @@ import { GIFT_CARD } from '../data/promociones'
 import { EQUIPO } from '../data/equipo'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 import { MARCAS } from '../data/marcas'
+import BotonPausa from './BotonPausa'
 import { FlechaLarga, Grano } from './Detalles'
 
 export function Filosofia() {
@@ -205,6 +206,8 @@ export function Equipo() {
 }
 
 export function Marcas() {
+  // La tira se repite dos veces por mitad para que no queden huecos en pantallas anchas; la segunda mitad es solo decorativa.
+  const logos = [...MARCAS, ...MARCAS]
   return (
     <section id="marcas" className="sec marcas">
       <div className="wrap">
@@ -214,13 +217,30 @@ export function Marcas() {
             Las marcas <em>con las que trabajamos.</em>
           </h2>
         </div>
-        <ul className="marcas-lista">
-          {MARCAS.map((m) => (
-            <li className="marca" key={m.nombre}>
-              <Image src={m.logo} alt={m.nombre} width={m.w} height={m.h} loading="eager" sizes="(max-width: 900px) 45vw, 240px" style={{ width: m.ancho }} />
-            </li>
-          ))}
-        </ul>
+      </div>
+      <div className="marcas-fila" role="region" aria-label="Marcas con las que trabajamos">
+        <div className="marcas-in">
+          <div className="mq marcas-track">
+            {[0, 1].map((copia) => (
+              <div className="mq-half" key={copia} aria-hidden={copia === 1 ? true : undefined}>
+                {logos.map((m, i) => (
+                  <span className="marca" key={`${m.nombre}-${i}`}>
+                    <Image
+                      src={m.logo}
+                      alt={copia === 0 && i < MARCAS.length ? m.nombre : ''}
+                      width={m.w}
+                      height={m.h}
+                      loading="eager"
+                      sizes="200px"
+                      style={{ width: `calc(${m.ancho}px * var(--escala-marca))` }}
+                    />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <BotonPausa objetivo=".marcas-fila" />
       </div>
     </section>
   )

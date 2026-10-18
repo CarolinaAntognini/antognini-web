@@ -2,15 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NAVEGACION, whatsappUrl } from '../data/sitio'
 
-/** Menú: transparente arriba, se oscurece al bajar, se esconde al bajar y vuelve al subir. */
+/** Menú: transparente arriba, se oscurece al bajar y queda siempre fijo a la vista. */
 export default function Header() {
   const [solido, setSolido] = useState(false)
-  const [oculto, setOculto] = useState(false)
   const [abierto, setAbierto] = useState(false)
-  const ultimo = useRef(0)
 
   useEffect(() => {
     let pendiente = false
@@ -18,11 +16,7 @@ export default function Header() {
       if (pendiente) return
       pendiente = true
       requestAnimationFrame(() => {
-        const y = window.scrollY
-        setSolido(y > 60)
-        if (y > 220 && y > ultimo.current + 6) setOculto(true)
-        else if (y < ultimo.current - 6 || y <= 220) setOculto(false)
-        ultimo.current = y
+        setSolido(window.scrollY > 60)
         pendiente = false
       })
     }
@@ -42,7 +36,7 @@ export default function Header() {
     }
   }, [abierto])
 
-  const clases = ['hdr', solido ? 'solid' : '', oculto && !abierto ? 'hide' : ''].join(' ').trim()
+  const clases = ['hdr', solido ? 'solid' : ''].join(' ').trim()
 
   return (
     <>
