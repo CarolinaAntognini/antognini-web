@@ -520,6 +520,14 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento o sensibilidad transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/exosomas-1-antes.jpg',
+        despues: '/fotos/antes-despues/exosomas-1-despues.jpg',
+        alt: 'Mejilla antes y después de los exosomas',
+        proporcion: '4 / 3',
+      },
+    ],
     foto: { src: '/fotos/trat-exosomas.jpg', alt: 'Caja con ampollas de tratamiento', posicion: '50% 50%' },
   },
   {
