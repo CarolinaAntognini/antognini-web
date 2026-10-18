@@ -420,6 +420,14 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un procedimiento ambulatorio que puede generar enrojecimiento, sensibilidad o descamación leve transitoria.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/mesopeel-1-antes.jpg',
+        despues: '/fotos/antes-despues/mesopeel-1-despues.jpg',
+        alt: 'Mejilla con manchas antes y después de Mesopeel',
+        proporcion: '4 / 3',
+      },
+    ],
     foto: { src: '/fotos/trat-mesopeel.jpg', alt: 'Ampolla de tratamiento en el consultorio', posicion: '50% 50%' },
   },
   {
