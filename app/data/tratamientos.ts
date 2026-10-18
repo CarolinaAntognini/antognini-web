@@ -592,7 +592,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
         antes: '/fotos/antes-despues/plasma-1-antes.jpg',
         despues: '/fotos/antes-despues/plasma-1-despues.jpg',
         alt: 'Rostro antes y después del plasma rico en plaquetas facial',
-        proporcion: '3 / 2',
+        proporcion: '4 / 7',
       },
       {
         antes: '/fotos/antes-despues/plasma-2-antes.jpg',
