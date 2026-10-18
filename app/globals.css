@@ -1135,7 +1135,7 @@ html.js [data-reveal].in {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--fog);
   border-bottom: 1px solid var(--fog);
 }
@@ -1147,22 +1147,16 @@ html.js [data-reveal].in {
   text-align: center;
   border-left: 1px solid var(--fog);
 }
-.marca:first-child {
+.marca:nth-child(3n + 1) {
   border-left: 0;
 }
-.marca span {
-  font-family: var(--f-label), serif;
-  font-size: 18px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--grey);
+.marca:nth-child(n + 4) {
+  border-top: 1px solid var(--fog);
 }
 .marca img {
   display: block;
-  height: 36px;
-  width: auto;
-  filter: grayscale(1);
-  opacity: 0.8;
+  max-width: 100%;
+  height: auto;
 }
 .contacto {
   background: var(--ink);
@@ -1782,11 +1776,11 @@ html.js [data-reveal].in {
   .marca:nth-child(even) {
     border-left: 1px solid var(--fog);
   }
-  .marca:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
+  .marca:nth-child(n + 4) {
+    border-top: 0;
   }
-  .marca span {
-    font-size: 15px;
+  .marca img {
+    max-width: 84%;
   }
   .hide-m {
     display: none !important;

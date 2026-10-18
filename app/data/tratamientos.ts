@@ -107,7 +107,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
         proporcion: '2 / 3',
       },
     ],
-    foto: { src: '/fotos/trat-armonizacion-facial.jpg', alt: 'Perfil de un rostro armonizado', posicion: '50% 50%' },
+    foto: { src: '/fotos/trat-armonizacion-facial.jpg', alt: 'Jeringa lista para la aplicación', posicion: '50% 50%' },
   },
   {
     slug: 'toxina-botulinica',

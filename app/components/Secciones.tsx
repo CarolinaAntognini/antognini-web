@@ -214,10 +214,10 @@ export function Marcas() {
             Las marcas <em>con las que trabajamos.</em>
           </h2>
         </div>
-        <ul className="marcas-lista" data-reveal="2">
+        <ul className="marcas-lista">
           {MARCAS.map((m) => (
             <li className="marca" key={m.nombre}>
-              {m.logo ? <Image src={m.logo} alt={m.nombre} width={220} height={60} /> : <span>{m.nombre}</span>}
+              <Image src={m.logo} alt={m.nombre} width={m.w} height={m.h} loading="eager" sizes="(max-width: 900px) 45vw, 240px" style={{ width: m.ancho }} />
             </li>
           ))}
         </ul>
