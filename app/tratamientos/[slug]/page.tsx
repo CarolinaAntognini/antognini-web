@@ -185,14 +185,14 @@ export default function FichaTratamiento({ params }: Props) {
                 Algunos <em>resultados.</em>
               </h2>
               <div className="ad-grid">
-                {t.antesDespues.map((par, i) => (
-                  <figure className="ad-par" key={par.antes} data-reveal={(i % 2) + 1}>
+                {t.antesDespues.map((par) => (
+                  <figure className="ad-par" key={par.antes}>
                     <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
-                      <Image src={par.antes} alt={`${par.alt}: antes`} fill sizes="(max-width: 900px) 46vw, 300px" />
+                      <Image src={par.antes} alt={`${par.alt}: antes`} fill loading="eager" sizes="(max-width: 900px) 46vw, 300px" />
                       <span className="ad-tag">Antes</span>
                     </div>
                     <div className="ad-foto" style={{ aspectRatio: par.proporcion }}>
-                      <Image src={par.despues} alt={`${par.alt}: después`} fill sizes="(max-width: 900px) 46vw, 300px" />
+                      <Image src={par.despues} alt={`${par.alt}: después`} fill loading="eager" sizes="(max-width: 900px) 46vw, 300px" />
                       <span className="ad-tag">Después</span>
                     </div>
                   </figure>

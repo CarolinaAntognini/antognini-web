@@ -263,7 +263,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
       'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
-    foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Cajas de Radiesse', posicion: '50% 50%' },
+    foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Profesional aplicando el tratamiento en el rostro', posicion: '50% 50%' },
   },
   {
     // Ficha armada con información general pública (no viene de una ficha de la doctora):
