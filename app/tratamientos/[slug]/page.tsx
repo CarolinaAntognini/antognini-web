@@ -177,6 +177,31 @@ export default function FichaTratamiento({ params }: Props) {
           </div>
         </section>
 
+        {t.incluye && (
+          <section className="sec inc-sec">
+            <div className="wrap">
+              <p className="lbl">Qué puede incluir</p>
+              <h2 className="h2">
+                Un plan <em>a tu medida.</em>
+              </h2>
+              <div className="otros">
+                {t.incluye
+                  .map((slug) => tratamientoPorSlug(slug))
+                  .filter((r) => r !== undefined)
+                  .map((r) => (
+                    <Link className="otro" href={`/tratamientos/${r.slug}`} key={r.slug}>
+                      <span className="lbl">{r.zonas.join(' · ')}</span>
+                      <span className="otro-t">{r.nombre}</span>
+                      <span className="otro-flecha">
+                        <Flecha />
+                      </span>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {t.antesDespues && (
           <section className="sec ad-sec">
             <div className="wrap">

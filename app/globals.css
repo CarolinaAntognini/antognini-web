@@ -1600,6 +1600,16 @@ html.js [data-reveal].in {
   color: var(--fog);
 }
 
+.inc-sec {
+  background: var(--blush);
+}
+.inc-sec .wrap > .lbl {
+  color: var(--grey);
+  margin-bottom: 28px;
+}
+.inc-sec .otros {
+  margin-top: 56px;
+}
 .ad-sec {
   background: var(--blush);
 }

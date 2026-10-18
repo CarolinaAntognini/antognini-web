@@ -9,7 +9,7 @@
 // hidroxiapatita, Sculptra, Dermapen, mesoterapia facial, Mesopeel, plasma, fosfatidilcolina,
 // enzimas (sesiones) y mesoterapia corporal (sesiones) NO salen de las fichas de la doctora:
 // son los rangos habituales de cada tratamiento y ella tiene que validarlos.
-// Peeling, Mesoterapia NCTF, Mesobotox y Exosomas no tienen ficha de la doctora: todo su contenido sale de información
+// Armonización facial, Peeling, Mesoterapia NCTF, Mesobotox y Exosomas no tienen ficha de la doctora: todo su contenido sale de información
 // pública general (protocolo del fabricante en NCTF) y ella tiene que validarlo completo. En Exosomas, además,
 // confirmar el registro del producto ante ANMAT antes de comunicarlo.
 // La foto principal es una foto general del consultorio o del producto. Los antes y después van aparte y
@@ -57,6 +57,8 @@ export type Tratamiento = {
   foto?: Foto
   /** Fotos de pacientes, ya recortadas sin los ojos. Solo para los tratamientos que tienen */
   antesDespues?: ParAntesDespues[]
+  /** Solo para tratamientos que son un conjunto de otros: slugs de las fichas que puede incluir el plan */
+  incluye?: string[]
 }
 
 export const ETIQUETAS_DATOS = {
@@ -69,6 +71,36 @@ export const ETIQUETAS_DATOS = {
 const NO_APTO_EMBARAZADAS = 'No apto para embarazadas'
 
 export const TRATAMIENTOS: Tratamiento[] = [
+  {
+    slug: 'armonizacion-facial',
+    nombre: 'Armonización facial',
+    zonas: ['Rostro'],
+    resumen: 'Un plan a medida que combina distintos tratamientos para equilibrar los rasgos de forma natural.',
+    intro:
+      'La armonización facial no es un solo tratamiento: es un conjunto de procedimientos que se combinan según tu rostro, tus rasgos y lo que querés lograr, para equilibrar las proporciones y realzar tu expresión con resultados naturales.',
+    datos: {
+      sesiones: 'Según el plan de cada persona',
+      entreSesiones: 'Según los tratamientos que se combinen',
+      resultados: 'Armónicos y naturales, de forma gradual',
+      zonas: 'Frente, mirada, pómulos, labios, mentón y mandíbula',
+    },
+    sirve: {
+      encabezado: 'Un rostro *equilibrado*, que conserva tu esencia.',
+      items: [
+        'Equilibrar las proporciones y la simetría del rostro',
+        'Suavizar arrugas de expresión y recuperar una mirada descansada',
+        'Recuperar firmeza y volumen de forma progresiva',
+        'Definir y armonizar labios, mentón y mandíbula',
+      ],
+      ideal: 'Ideal para quienes buscan un cambio natural y a medida, en lugar de un solo tratamiento.',
+    },
+    detalle: [
+      'En la consulta se evalúa tu rostro en conjunto para indicar qué tratamientos combinar y en qué orden.',
+      'El plan puede ajustarse a medida que se ven los resultados, siempre de forma gradual y natural.',
+    ],
+    incluye: ['toxina-botulinica', 'relleno-de-labios', 'skinbooster', 'hidroxiapatita-de-calcio', 'sculptra'],
+    foto: { src: '/fotos/trat-armonizacion-facial.jpg', alt: 'La doctora realizando un tratamiento facial', posicion: '50% 50%' },
+  },
   {
     slug: 'toxina-botulinica',
     nombre: 'Toxina botulínica',
@@ -263,7 +295,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento seguro, biocompatible y muy utilizado en medicina estética para rejuvenecimiento facial y corporal.',
       'Los resultados mejoran de forma progresiva, dependiendo de cada paciente.',
     ],
-    foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Profesional aplicando el tratamiento en el rostro', posicion: '50% 50%' },
+    foto: { src: '/fotos/trat-hidroxiapatita-de-calcio.jpg', alt: 'Persona sosteniendo cajas de Radiesse', posicion: '50% 50%' },
   },
   {
     // Ficha armada con información general pública (no viene de una ficha de la doctora):
@@ -634,6 +666,14 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Son ideales para zonas pequeñas y medianas.',
       'Los resultados son progresivos y naturales.',
     ],
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/enzimas-1-antes.jpg',
+        despues: '/fotos/antes-despues/enzimas-1-despues.jpg',
+        alt: 'Abdomen y cadera antes y después de las enzimas lipolíticas',
+        proporcion: '4 / 3',
+      },
+    ],
     foto: { src: '/fotos/trat-enzimas-lipoliticas.jpg', alt: 'Profesional aplicando enzimas lipolíticas en el abdomen', posicion: '50% 50%' },
   },
   {
@@ -662,7 +702,15 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Puede haber leve ardor o rojez en la zona tratada, con los puntos marcados por 48 horas.',
     ],
     noApto: NO_APTO_EMBARAZADAS,
-    foto: { src: '/fotos/trat-mesoterapia-corporal.jpg', alt: 'Jeringa lista para la aplicación', posicion: '50% 50%' },
+    antesDespues: [
+      {
+        antes: '/fotos/antes-despues/corporal-1-antes.jpg',
+        despues: '/fotos/antes-despues/corporal-1-despues.jpg',
+        alt: 'Muslo con celulitis antes y después de la mesoterapia corporal',
+        proporcion: '6 / 7',
+      },
+    ],
+    foto: { src: '/fotos/trat-mesoterapia-corporal.jpg', alt: 'Ampolla de tratamiento para la celulitis', posicion: '50% 50%' },
   },
 ]
 
@@ -695,6 +743,8 @@ export const DESCRIPCIONES_META: Record<string, string> = {
     'Toxina botulínica en Mar del Plata: relaja las arrugas de expresión con un resultado natural, previa evaluación médica. Consultá por WhatsApp.',
   'relleno-de-labios':
     'Relleno de labios con ácido hialurónico en Mar del Plata: hidratación, definición y armonía con volumen a medida. Consultá por WhatsApp.',
+  'armonizacion-facial':
+    'Armonización facial en Mar del Plata: un plan a medida que combina tratamientos para equilibrar tus rasgos de forma natural. Consultá por WhatsApp.',
   exosomas:
     'Exosomas en Mar del Plata: tratamiento para estimular la regeneración y mejorar la calidad de la piel. Consultá por WhatsApp.',
   mesobotox:
