@@ -4,6 +4,7 @@ import { GIFT_CARD } from '../data/promociones'
 import { EQUIPO } from '../data/equipo'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 import { MARCAS } from '../data/marcas'
+import { PREGUNTAS } from '../data/preguntas'
 import BotonPausa from './BotonPausa'
 import { FlechaLarga, Grano } from './Detalles'
 
@@ -198,6 +199,50 @@ export function Equipo() {
               <p className="m-n">{p.nombre}</p>
               <p className="lbl m-r">{[p.rol, p.matricula].filter(Boolean).join(' · ')}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function PreguntasFrecuentes() {
+  return (
+    <section id="preguntas" className="sec faq">
+      <div className="wrap faq-grid">
+        <div className="faq-cab" data-reveal>
+          <p className="lbl">Preguntas frecuentes</p>
+          <h2 className="h2">
+            Resolvemos <em>tus dudas.</em>
+          </h2>
+          <p className="body faq-p">
+            Si no encontrás lo que buscás, escribinos y te respondemos.
+          </p>
+          <a className="btn btn-oscuro" href={whatsappUrl('Hola, tengo una consulta')} target="_blank" rel="noopener noreferrer">
+            Escribir por WhatsApp
+          </a>
+        </div>
+        <div className="faq-lista">
+          {PREGUNTAS.map((q) => (
+            <details className="faq-item" key={q.pregunta}>
+              <summary>
+                <span>{q.pregunta}</span>
+                <svg className="faq-mas" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+                  <path d="M9 2v14M2 9h14" />
+                </svg>
+              </summary>
+              <div className="faq-r">
+                <p>{q.respuesta}</p>
+                {q.enlace && (
+                  <a
+                    href={q.enlace.whatsapp ? whatsappUrl(q.enlace.whatsapp) : q.enlace.href}
+                    {...(q.enlace.whatsapp || q.enlace.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {q.enlace.texto}
+                  </a>
+                )}
+              </div>
+            </details>
           ))}
         </div>
       </div>

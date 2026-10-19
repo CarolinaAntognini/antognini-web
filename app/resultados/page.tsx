@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import AntesDespues from '../components/AntesDespues'
 import { Grano } from '../components/Detalles'
 import Footer from '../components/Footer'
+import GaleriaResultados, { type GrupoResultados } from '../components/GaleriaResultados'
 import JsonLd from '../components/JsonLd'
 import { URL_SITIO, whatsappUrl } from '../data/sitio'
 import { TRATAMIENTOS } from '../data/tratamientos'
@@ -29,8 +29,14 @@ export const metadata: Metadata = {
 }
 
 export default function PaginaResultados() {
-  // Solo los tratamientos que tienen fotos de antes y después
-  const con = TRATAMIENTOS.filter((t) => t.antesDespues && t.antesDespues.length > 0)
+  // Un grupo por tratamiento que tiene fotos de antes y después
+  const grupos: GrupoResultados[] = TRATAMIENTOS.filter((t) => t.antesDespues && t.antesDespues.length > 0).map((t) => ({
+    slug: t.slug,
+    nombre: t.nombre,
+    zonas: t.zonas.join(' · '),
+    texto: t.resultado,
+    pares: (t.antesDespues ?? []).map((p) => ({ antes: p.antes, despues: p.despues, alt: p.alt, zona: p.zona ?? t.zonas[0] })),
+  }))
 
   return (
     <>
@@ -65,28 +71,12 @@ export default function PaginaResultados() {
               </span>
             </h1>
             <p className="body fadeup pg-p" style={{ animationDelay: '.6s' }}>
-              Antes y después de algunos de nuestros tratamientos.
+              Tocá cada caso para verlo en grande.
             </p>
           </div>
         </section>
 
-        {con.map((t, i) => (
-          <section className={`sec rs-sec ${i % 2 === 1 ? 'rs-alt' : ''}`} key={t.slug} id={t.slug}>
-            <div className="wrap">
-              <div className="rs-cab">
-                <p className="lbl">{t.zonas.join(' · ')}</p>
-                <h2 className="h2">
-                  <Link href={`/tratamientos/${t.slug}`}>{t.nombre}</Link>
-                </h2>
-                {t.resultado && <p className="body">{t.resultado}</p>}
-              </div>
-              <AntesDespues pares={t.antesDespues ?? []} eager={i < 2} />
-              <Link className="rs-ver" href={`/tratamientos/${t.slug}`}>
-                Ver el tratamiento
-              </Link>
-            </div>
-          </section>
-        ))}
+        <GaleriaResultados grupos={grupos} />
 
         <section className="sec cta-eleccion" data-reveal>
           <div className="wrap cta-eleccion-in">

@@ -2,7 +2,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import PromoSection from './components/PromoSection'
-import { CategoriasTratamientos, Consulta, Contacto, Equipo, Filosofia, GiftCard, Marcas } from './components/Secciones'
+import { CategoriasTratamientos, Consulta, Contacto, Equipo, Filosofia, GiftCard, Marcas, PreguntasFrecuentes } from './components/Secciones'
 import { promocionVigente } from './data/promociones'
 
 // La página se regenera cada hora: así la promo aparece y desaparece sola según las fechas.
@@ -22,6 +22,7 @@ export default function Inicio() {
         <GiftCard />
         <Consulta />
         <Equipo />
+        <PreguntasFrecuentes />
         <Marcas />
         <Contacto />
       </main>

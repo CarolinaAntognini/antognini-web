@@ -25,8 +25,10 @@ export type ParAntesDespues = {
   antes: string
   despues: string
   alt: string
-  /** Proporción de cada foto, por ejemplo '4 / 3' o '1 / 1' */
+  /** Proporción original de la foto (ya no define el tamaño del cuadro: todas se muestran completas en un cuadro parejo) */
   proporcion: string
+  /** Zona del caso, para el filtro de Resultados. Si falta, se toma la primera zona del tratamiento */
+  zona?: Zona
 }
 
 export type Tratamiento = {
@@ -364,6 +366,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       {
         antes: '/fotos/antes-despues/sculptra-2-antes.jpg',
         despues: '/fotos/antes-despues/sculptra-2-despues.jpg',
+        zona: 'Cuerpo',
         alt: 'Abdomen antes y después de Sculptra',
         proporcion: '1 / 1',
       },
@@ -612,6 +615,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       {
         antes: '/fotos/antes-despues/plasma-2-antes.jpg',
         despues: '/fotos/antes-despues/plasma-2-despues.jpg',
+        zona: 'Cabello',
         alt: 'Cuero cabelludo antes y después del plasma rico en plaquetas capilar',
         proporcion: '1 / 1',
       },

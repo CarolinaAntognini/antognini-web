@@ -48,6 +48,11 @@ export default function Footer({ conDatos = true }: { conDatos?: boolean }) {
           </div>
         </div>
       )}
+      <nav className="foot-legal" aria-label="Información legal">
+        <Link href="/#preguntas">Preguntas frecuentes</Link>
+        <Link href="/terminos">Términos y condiciones</Link>
+        <Link href="/privacidad">Política de privacidad</Link>
+      </nav>
       <div className="foot-in">
         <span>
           © {new Date().getFullYear()} · {SITIO.descriptor} · {SITIO.ciudad}
