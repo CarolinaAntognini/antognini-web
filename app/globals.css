@@ -2707,3 +2707,116 @@ html {
     display: none;
   }
 }
+
+/* ───────────────────────── Página /links (QR y redes) ───────────────────────── */
+body:has(.links-page) {
+  padding-bottom: 0;
+}
+.links-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 56px 24px 48px;
+}
+.links-in {
+  position: relative;
+  z-index: 2;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.links-cab {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.links-avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(249, 247, 244, 0.4);
+  border-radius: 50%;
+}
+.links-avatar img {
+  width: 56%;
+  height: auto;
+}
+.links-h1 {
+  margin: 0;
+  line-height: 0;
+}
+.links-h1 img {
+  display: block;
+  width: 230px;
+  max-width: 70%;
+  height: auto;
+  margin: 0 auto;
+}
+.links-sub {
+  margin: 16px 0 0;
+  color: var(--mute);
+}
+.links-lista {
+  display: grid;
+  gap: 12px;
+}
+.links-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 14px 22px;
+  border: 1px solid rgba(249, 247, 244, 0.38);
+  color: var(--cream);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.links-btn:hover,
+.links-btn:focus-visible {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+}
+.links-btn-principal {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+}
+.links-btn-principal:hover,
+.links-btn-principal:focus-visible {
+  background: var(--blush);
+  border-color: var(--blush);
+}
+.links-btn-t {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+}
+.links-btn-t span {
+  font-family: var(--f-label), serif;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.links-btn-t small {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+.links-btn svg {
+  flex: none;
+}
+.links-pie {
+  margin: 36px 0 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--mute);
+}
+.links-pie a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

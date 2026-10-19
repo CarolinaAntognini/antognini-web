@@ -5,6 +5,7 @@ import BarraCelular from './components/BarraCelular'
 import Header from './components/Header'
 import RevealObserver from './components/RevealObserver'
 import JsonLd from './components/JsonLd'
+import OcultarEnLinks from './components/OcultarEnLinks'
 import Ticker from './components/Ticker'
 import { instagramUrl, SITIO, URL_SITIO } from './data/sitio'
 
@@ -108,10 +109,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="skip" href="#contenido">
           Saltar al contenido
         </a>
-        <Ticker />
-        <Header />
+        <OcultarEnLinks>
+          <Ticker />
+          <Header />
+        </OcultarEnLinks>
         {children}
-        <BarraCelular />
+        <OcultarEnLinks>
+          <BarraCelular />
+        </OcultarEnLinks>
         <RevealObserver />
         <noscript>
           <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>

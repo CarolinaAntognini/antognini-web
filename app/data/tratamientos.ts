@@ -146,12 +146,6 @@ export const TRATAMIENTOS: Tratamiento[] = [
         proporcion: '4 / 3',
       },
       {
-        antes: '/fotos/antes-despues/toxina-2-antes.jpg',
-        despues: '/fotos/antes-despues/toxina-2-despues.jpg',
-        alt: 'Frente antes y después de la toxina botulínica, caso 2',
-        proporcion: '4 / 3',
-      },
-      {
         antes: '/fotos/antes-despues/toxina-3-antes.jpg',
         despues: '/fotos/antes-despues/toxina-3-despues.jpg',
         alt: 'Frente antes y después de la toxina botulínica, caso 3',
