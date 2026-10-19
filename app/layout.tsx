@@ -101,7 +101,7 @@ const datosEstructurados = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${display.variable} ${label.variable} ${body.variable}`} suppressHydrationWarning>
+    <html lang="es" data-scroll-behavior="smooth" className={`${display.variable} ${label.variable} ${body.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
