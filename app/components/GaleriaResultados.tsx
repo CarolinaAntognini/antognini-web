@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import FotoCuadro from './FotoCuadro'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -96,11 +96,11 @@ export default function GaleriaResultados({ grupos }: { grupos: GrupoResultados[
             </div>
             <div className="rg-modal-fotos">
               <div className="rg-grande">
-                <Image src={actual.p.antes} alt={`${actual.p.alt}: antes`} fill sizes="(max-width: 900px) 92vw, 520px" />
+                <FotoCuadro src={actual.p.antes} alt={`${actual.p.alt}: antes`} sizes="(max-width: 900px) 92vw, 520px" />
                 <span className="ad-tag">Antes</span>
               </div>
               <div className="rg-grande">
-                <Image src={actual.p.despues} alt={`${actual.p.alt}: después`} fill sizes="(max-width: 900px) 92vw, 520px" />
+                <FotoCuadro src={actual.p.despues} alt={`${actual.p.alt}: después`} sizes="(max-width: 900px) 92vw, 520px" />
                 <span className="ad-tag">Después</span>
               </div>
             </div>
@@ -169,11 +169,11 @@ function PistaGrupo({
         {g.pares.map((p, i) => (
           <button type="button" className="rg-par" key={p.antes} onClick={(e) => abrir(g.slug, i, e.currentTarget)} aria-label={`Ampliar: ${p.alt}`}>
             <span className="ad-foto">
-              <Image src={p.antes} alt="" fill sizes="(max-width: 900px) 42vw, 250px" loading={eager ? 'eager' : 'lazy'} />
+              <FotoCuadro src={p.antes} alt="" sizes="(max-width: 900px) 42vw, 250px" loading={eager ? 'eager' : 'lazy'} />
               <span className="ad-tag">Antes</span>
             </span>
             <span className="ad-foto">
-              <Image src={p.despues} alt="" fill sizes="(max-width: 900px) 42vw, 250px" loading={eager ? 'eager' : 'lazy'} />
+              <FotoCuadro src={p.despues} alt="" sizes="(max-width: 900px) 42vw, 250px" loading={eager ? 'eager' : 'lazy'} />
               <span className="ad-tag">Después</span>
             </span>
             <span className="rg-ampliar" aria-hidden="true">

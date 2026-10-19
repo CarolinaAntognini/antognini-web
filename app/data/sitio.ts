@@ -39,8 +39,8 @@ export const AVISOS_FIJOS = [
 export const NAVEGACION = [
   { href: '/tratamientos', texto: 'Tratamientos' },
   { href: '/resultados', texto: 'Resultados' },
-  { href: '/#consulta', texto: 'Primera consulta' },
   { href: '/#equipo', texto: 'Equipo' },
+  { href: '/#preguntas', texto: 'Preguntas frecuentes' },
   { href: '/#contacto', texto: 'Contacto' },
 ] as const
 

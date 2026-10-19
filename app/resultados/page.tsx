@@ -62,17 +62,14 @@ export default function PaginaResultados() {
             </p>
             <h1 className="pg-h1">
               <span className="mask">
-                <span style={{ animationDelay: '.15s' }}>Algunos</span>
+                <span style={{ animationDelay: '.15s' }}>Antes y</span>
               </span>
               <span className="mask">
                 <span style={{ animationDelay: '.3s' }}>
-                  <em>resultados</em>
+                  <em>después</em>
                 </span>
               </span>
             </h1>
-            <p className="body fadeup pg-p" style={{ animationDelay: '.6s' }}>
-              Tocá cada caso para verlo en grande.
-            </p>
           </div>
         </section>
 

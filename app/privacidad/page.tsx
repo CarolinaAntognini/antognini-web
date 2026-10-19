@@ -18,7 +18,7 @@ const SECCIONES: SeccionLegal[] = [
   {
     titulo: 'Qué datos tratamos',
     lista: [
-      'Sitio web: el sitio no tiene formularios, cuentas de usuario ni registro. No usa cookies publicitarias ni de seguimiento, ni herramientas de medición de visitas. El servicio de alojamiento (Vercel) puede registrar datos técnicos de conexión, como dirección IP, navegador y fecha y hora, por motivos de seguridad y funcionamiento.',
+      'Sitio web: el sitio no tiene formularios, cuentas de usuario ni registro. No usa cookies publicitarias ni de seguimiento, ni herramientas de medición de visitas. El servicio de alojamiento del sitio puede registrar datos técnicos de conexión, como dirección IP, navegador y fecha y hora, por motivos de seguridad y funcionamiento.',
       'Contacto por WhatsApp o Instagram: si nos escribís, usamos los datos que nos compartas (por ejemplo, nombre, teléfono y tu consulta) para responderte y coordinar el turno. Esas plataformas tienen sus propias políticas de privacidad.',
       'Atención de pacientes: al reservar y ser atendido registramos datos de identificación y contacto, y los datos de salud necesarios para tu atención, que forman parte de la historia clínica.',
       'Imágenes: las fotografías de seguimiento y de antes y después se toman y se publican únicamente con tu consentimiento.',
@@ -77,7 +77,7 @@ const SECCIONES: SeccionLegal[] = [
   },
   {
     titulo: 'Cambios en esta política',
-    parrafos: ['Podemos actualizar esta política. La versión vigente es la publicada en esta página, con su fecha de actualización.'],
+    parrafos: ['Podemos actualizar esta política. La versión vigente es la publicada en esta página.'],
   },
 ]
 
@@ -85,7 +85,6 @@ export default function Privacidad() {
   return (
     <PaginaLegal
       titulo="Política de privacidad"
-      actualizado="19 de octubre de 2026"
       intro="Esta política explica qué datos tratamos, para qué los usamos y cómo los cuidamos, en particular los datos de salud de las pacientes."
       secciones={SECCIONES}
     />

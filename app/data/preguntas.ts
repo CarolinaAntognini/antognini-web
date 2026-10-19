@@ -46,7 +46,7 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     pregunta: '¿Qué medios de pago tienen?',
-    respuesta: 'Tenemos 10% de descuento en efectivo o transferencia y 3 cuotas sin interés.',
+    respuesta: 'Tenemos 10% de descuento en efectivo o transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard.',
   },
   {
     pregunta: '¿Cuántas sesiones necesito?',
@@ -58,10 +58,6 @@ export const PREGUNTAS: Pregunta[] = [
     respuesta:
       'Depende del tratamiento: algunos se notan enseguida y otros mejoran de forma gradual. En cada tratamiento figura cuándo se ven los resultados y cuánto duran.',
     enlace: { texto: 'Ver resultados', href: '/resultados' },
-  },
-  {
-    pregunta: '¿Los tratamientos son también para hombres?',
-    respuesta: 'Sí. Atendemos a todas las personas. El plan se arma según tus objetivos y tu piel.',
   },
   {
     pregunta: '¿Hay tratamientos que no se pueden hacer durante el embarazo?',

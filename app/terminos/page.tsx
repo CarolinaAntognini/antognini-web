@@ -40,7 +40,7 @@ const SECCIONES: SeccionLegal[] = [
   {
     titulo: 'Medios de pago, promociones y gift card',
     parrafos: [
-      'Se ofrece un 10% de descuento en pagos en efectivo o por transferencia, y 3 cuotas sin interés.',
+      'Se ofrece un 10% de descuento en pagos en efectivo o por transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard.',
       'Las promociones informadas en el sitio rigen durante el período indicado en cada caso. La gift card puede utilizarse para cualquier tratamiento y tiene una validez de 30 días.',
     ],
   },
@@ -65,7 +65,7 @@ const SECCIONES: SeccionLegal[] = [
   },
   {
     titulo: 'Cambios en estos términos',
-    parrafos: ['Estos términos pueden actualizarse. La versión vigente es la publicada en esta página, con su fecha de actualización.'],
+    parrafos: ['Estos términos pueden actualizarse. La versión vigente es la publicada en esta página.'],
   },
   {
     titulo: 'Ley aplicable y jurisdicción',
@@ -83,7 +83,6 @@ export default function Terminos() {
   return (
     <PaginaLegal
       titulo="Términos y condiciones"
-      actualizado="19 de octubre de 2026"
       intro="Estos términos explican cómo se usa este sitio y cómo funcionan la reserva de turnos, la seña y las cancelaciones."
       secciones={SECCIONES}
     />

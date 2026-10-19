@@ -8,12 +8,10 @@ export type SeccionLegal = { titulo: string; parrafos?: string[]; lista?: string
 /** Estructura común de las páginas legales (términos y privacidad). */
 export default function PaginaLegal({
   titulo,
-  actualizado,
   intro,
   secciones,
 }: {
   titulo: string
-  actualizado: string
   intro: string
   secciones: SeccionLegal[]
 }) {
@@ -34,9 +32,6 @@ export default function PaginaLegal({
                 <span style={{ animationDelay: '.15s' }}>{titulo}</span>
               </span>
             </h1>
-            <p className="lbl fadeup" style={{ animationDelay: '.5s' }}>
-              Última actualización: {actualizado}
-            </p>
           </div>
         </section>
 
