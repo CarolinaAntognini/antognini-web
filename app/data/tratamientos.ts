@@ -119,7 +119,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'La toxina botulínica actúa relajando de forma temporal los músculos responsables de las arrugas dinámicas del tercio superior del rostro, como frente, entrecejo y patas de gallo.',
     datos: {
       sesiones: '1 sesión, con control a los 15 días',
-      entreSesiones: 'Cada 3 a 4 meses, cuando termina el efecto',
+      entreSesiones: 'Cada 4 a 6 meses, cuando termina el efecto',
       resultados: 'Desde las 72 a 96 horas, con efecto máximo a los 15 días',
       zonas: 'Tercio superior, tercio inferior, bruxismo e hiperhidrosis',
     },
@@ -199,7 +199,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento estético realizado con ácido hialurónico que permite mejorar la hidratación, definición y armonía de los labios.',
     datos: {
       sesiones: '1 sesión',
-      entreSesiones: 'Si hace falta un retoque, a las 2 a 4 semanas',
+      entreSesiones: 'Control a la semana. Si hace falta un retoque, a las 2 a 4 semanas',
       resultados: 'Inmediatos, con evolución durante los días posteriores. Duran alrededor de 6 a 12 meses',
       zonas: 'Labios',
     },

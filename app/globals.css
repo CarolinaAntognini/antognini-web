@@ -1669,7 +1669,6 @@ html {
 }
 .dato:first-child {
   border-left: 0;
-  padding-left: 0;
 }
 .dato .lbl {
   font-size: 12px;
@@ -2115,6 +2114,11 @@ html {
 }
 
 /* ───────────────────────── Celular ───────────────────────── */
+@media (min-width: 901px) {
+  .dato {
+    text-align: center;
+  }
+}
 @media (max-width: 900px) {
   :root {
     --header-h: 68px;
