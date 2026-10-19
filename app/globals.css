@@ -1381,6 +1381,12 @@ html {
   letter-spacing: 0.08em;
   line-height: 1.7;
 }
+.foot-autora {
+  font-family: var(--f-display), serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
 .foot a {
   text-decoration: none;
 }

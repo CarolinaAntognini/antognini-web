@@ -57,7 +57,7 @@ export default function Footer({ conDatos = true }: { conDatos?: boolean }) {
         <span>
           © 2026 Antognini Medicina Estética Integral. Todos los derechos reservados.
           <br />
-          Sitio creado por Lic. Carolina Antognini
+          Sitio creado por <em className="foot-autora">Lic. Carolina Antognini</em>
         </span>
         <Link href="#inicio">Volver arriba ↑</Link>
       </div>
