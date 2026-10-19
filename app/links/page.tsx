@@ -33,12 +33,10 @@ export default function PaginaLinks() {
     { texto: 'Reservar turno', detalle: 'Por WhatsApp', href: whatsappUrl('Hola, quiero reservar un turno'), externo: true, principal: true },
     ...(promo ? [{ texto: `Promo ${promo.titulo}`, detalle: `${promo.destacado} ${promo.etiqueta} ${promo.descripcion}`, href: '/#promo' }] : []),
     { texto: 'Tratamientos', href: '/tratamientos' },
-    { texto: 'Resultados', href: '/resultados' },
     { texto: 'Gift card', detalle: 'Regalá un tratamiento', href: whatsappUrl('Hola, quiero comprar una gift card'), externo: true },
-    { texto: 'Preguntas frecuentes', href: '/#preguntas' },
+    { texto: 'Visitá nuestra web', href: '/' },
     { texto: 'Ubicación', href: SITIO.mapa, externo: true },
     { texto: 'Seguinos en Instagram', href: instagramUrl, externo: true },
-    { texto: 'Visitá nuestra web', href: '/' },
   ]
 
   return (

@@ -413,10 +413,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 56px;
 }
 .hdr-logo {
   display: block;
+  flex-shrink: 0;
   line-height: 0;
 }
 .hdr-logo img {
@@ -456,7 +457,7 @@ html {
 @media (min-width: 901px) and (max-width: 1480px) {
   .hdr-in {
     padding: 0 40px;
-    gap: 24px;
+    gap: 48px;
   }
   .hdr-nav {
     gap: 26px;
@@ -468,8 +469,8 @@ html {
 }
 @media (min-width: 901px) and (max-width: 1100px) {
   .hdr-in {
-    padding: 0 20px;
-    gap: 16px;
+    padding: 0 28px;
+    gap: 40px;
   }
   .hdr-nav {
     gap: 16px;

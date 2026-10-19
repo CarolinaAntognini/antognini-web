@@ -42,7 +42,6 @@ export const NAVEGACION = [
   { href: '/resultados', texto: 'Resultados' },
   { href: '/#equipo', texto: 'Profesionales' },
   { href: '/#preguntas', texto: 'Preguntas frecuentes' },
-  { href: '/#contacto', texto: 'Contacto' },
 ] as const
 
 export const ESPECIALIDADES = [
