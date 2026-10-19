@@ -453,6 +453,37 @@ html {
   transform: scaleX(1);
   transform-origin: left;
 }
+@media (min-width: 901px) and (max-width: 1480px) {
+  .hdr-in {
+    padding: 0 40px;
+    gap: 24px;
+  }
+  .hdr-nav {
+    gap: 26px;
+  }
+  .navlink {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hdr-in {
+    padding: 0 20px;
+    gap: 16px;
+  }
+  .hdr-nav {
+    gap: 16px;
+  }
+  .navlink {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .hdr-nav .btn-chico {
+    padding-left: 14px;
+    padding-right: 14px;
+    letter-spacing: 0.1em;
+  }
+}
 .burger {
   display: none;
   background: none;
