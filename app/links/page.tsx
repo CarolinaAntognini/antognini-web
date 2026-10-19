@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Grano } from '../components/Detalles'
+import { EQUIPO } from '../data/equipo'
 import { promocionVigente } from '../data/promociones'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 
@@ -26,6 +27,7 @@ const Flecha = () => (
 
 export default function PaginaLinks() {
   const promo = promocionVigente()
+  const medica = EQUIPO[0]
 
   const botones: Boton[] = [
     { texto: 'Reservar turno', detalle: 'Por WhatsApp', href: whatsappUrl('Hola, quiero reservar un turno'), externo: true, principal: true },
@@ -45,15 +47,21 @@ export default function PaginaLinks() {
       <Grano id="grano-links" />
       <div className="links-in">
         <div className="links-cab">
-          <div className="links-avatar">
-            <Image src="/brand/isotipo-blanco.png" alt="" width={900} height={704} aria-hidden="true" />
-          </div>
           <h1 className="links-h1">
-            <Image src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} priority sizes="260px" />
+            {/* Sin optimizar: es un PNG de 1600 px que así se ve nítido también en pantallas de alta densidad */}
+            <Image src="/brand/wordmark-blanco.png" alt="Antognini" width={1600} height={290} priority unoptimized />
           </h1>
-          <p className="links-sub">
-            Medicina estética integral
-            <span>{SITIO.ciudad}</span>
+          {/* La bajada ocupa exactamente el mismo ancho que el nombre */}
+          <svg className="links-sub" viewBox="0 0 1600 84" role="img" aria-label="Medicina estética integral">
+            <text x="0" y="66" textLength="1600" lengthAdjust="spacing">
+              MEDICINA ESTÉTICA INTEGRAL
+            </text>
+          </svg>
+          <p className="links-dra">
+            {medica.nombre}
+            <span>
+              {medica.matricula} · {SITIO.ciudad}
+            </span>
           </p>
         </div>
 

@@ -2756,46 +2756,47 @@ body:has(.links-page) {
   text-align: center;
   margin-bottom: 40px;
 }
-.links-avatar {
-  width: 92px;
-  height: 92px;
-  margin: 0 auto 24px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(249, 247, 244, 0.45);
-  border-radius: 50%;
-}
-.links-avatar img {
-  width: 56%;
-  height: auto;
-}
 .links-h1 {
   margin: 0;
   line-height: 0;
 }
 .links-h1 img {
   display: block;
-  width: 230px;
-  max-width: 70%;
+  width: 300px;
+  max-width: 82%;
   height: auto;
   margin: 0 auto;
 }
 .links-sub {
-  margin: 20px 0 0;
-  font-family: var(--f-body), sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.26em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: rgba(249, 247, 244, 0.88);
-}
-.links-sub span {
   display: block;
-  margin-top: 4px;
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  opacity: 0.75;
+  width: 300px;
+  max-width: 82%;
+  height: auto;
+  margin: 18px auto 0;
+  overflow: visible;
+}
+.links-sub text {
+  font-family: var(--f-body), sans-serif;
+  font-weight: 600;
+  font-size: 66px;
+  fill: rgba(249, 247, 244, 0.94);
+}
+.links-dra {
+  margin: 30px 0 0;
+  font-family: var(--f-display), serif;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--cream);
+}
+.links-dra span {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--f-body), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(249, 247, 244, 0.8);
 }
 .links-lista {
   display: grid;
