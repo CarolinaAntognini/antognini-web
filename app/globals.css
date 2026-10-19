@@ -807,22 +807,15 @@ html {
   background: var(--cream);
 }
 .trat-cab {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 48px;
-  flex-wrap: wrap;
   margin-bottom: 72px;
-}
-.trat-cab > div {
-  max-width: 780px;
 }
 .trat-cab .lbl {
   color: var(--grey);
   margin-bottom: 28px;
 }
 .trat-cab > .body {
-  max-width: 380px;
+  max-width: 480px;
+  margin-top: 32px;
   color: var(--grey);
 }
 .cat {
@@ -2454,7 +2447,9 @@ html {
   }
   .trat-cab {
     margin-bottom: 40px;
-    gap: 16px;
+  }
+  .trat-cab > .body {
+    margin-top: 20px;
   }
   .trat-cab > .body {
     font-size: 16px;

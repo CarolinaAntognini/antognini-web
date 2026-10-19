@@ -67,12 +67,12 @@ export function CategoriasTratamientos() {
     <section id="tratamientos" className="sec trat-sec">
       <div className="wrap">
         <div className="trat-cab" data-reveal>
-          <div>
-            <p className="lbl">Tratamientos</p>
-            <h2 className="h2">
-              Cada piel. Cada cuerpo. <em>Cada objetivo.</em>
-            </h2>
-          </div>
+          <p className="lbl">Tratamientos</p>
+          <h2 className="h2">
+            Cada piel. Cada cuerpo.
+            <br />
+            <em>Cada objetivo.</em>
+          </h2>
           <p className="body">Cada tratamiento se indica en la consulta médica, según tu piel y lo que querés lograr.</p>
         </div>
         <div className="g2">
