@@ -2852,14 +2852,17 @@ body:has(.links-page) {
   flex: none;
 }
 .links-pie {
-  margin: 36px 0 0;
+  margin: 28px 0 0;
   text-align: center;
   font-family: var(--f-body), sans-serif;
-  font-size: 14px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
   line-height: 1.8;
-  color: rgba(249, 247, 244, 0.75);
+  color: rgba(249, 247, 244, 0.6);
 }
 .links-pie a {
+  display: inline-block;
+  padding: 10px 2px;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
