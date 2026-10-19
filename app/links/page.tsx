@@ -35,8 +35,8 @@ export default function PaginaLinks() {
     { texto: 'Tratamientos', href: '/tratamientos' },
     { texto: 'Gift card', detalle: 'Regalá un tratamiento', href: whatsappUrl('Hola, quiero comprar una gift card'), externo: true },
     { texto: 'Visitá nuestra web', href: '/' },
-    { texto: 'Ubicación', href: SITIO.mapa, externo: true },
     { texto: 'Seguinos en Instagram', href: instagramUrl, externo: true },
+    { texto: 'Ubicación', href: SITIO.mapa, externo: true },
   ]
 
   return (
