@@ -167,7 +167,8 @@ function PistaGrupo({
       </div>
       <div className="rg-pista" ref={pista} role="region" aria-label={`Casos de ${g.nombre}`} tabIndex={0}>
         {g.pares.map((p, i) => (
-          <button type="button" className="rg-par" key={p.antes} onClick={(e) => abrir(g.slug, i, e.currentTarget)} aria-label={`Ampliar: ${p.alt}`}>
+          <button type="button" className="rg-par" key={p.antes} onClick={(e) => abrir(g.slug, i, e.currentTarget)}>
+            <span className="sr-only">{p.alt}. </span>
             <span className="ad-foto">
               <FotoCuadro src={p.antes} alt="" sizes="(max-width: 900px) 42vw, 250px" loading={eager ? 'eager' : 'lazy'} />
               <span className="ad-tag">Antes</span>

@@ -14,14 +14,14 @@ const DESCRIPCION =
   'Antes y después de tratamientos de medicina estética en Mar del Plata: toxina botulínica, relleno de labios, bioestimuladores, plasma rico en plaquetas y más.'
 
 export const metadata: Metadata = {
-  title: 'Resultados de tratamientos de medicina estética en Mar del Plata',
+  title: 'Resultados de tratamientos en Mar del Plata',
   description: DESCRIPCION,
   alternates: { canonical: '/resultados' },
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     siteName: 'Antognini Medicina Estética Integral',
-    title: 'Resultados de tratamientos de medicina estética en Mar del Plata | Antognini',
+    title: 'Resultados de tratamientos en Mar del Plata | Antognini',
     description: DESCRIPCION,
     url: '/resultados',
     images: ['/opengraph-image.png'],

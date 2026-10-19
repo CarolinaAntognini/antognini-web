@@ -11,14 +11,15 @@ import { DESCRIPCIONES_META, ETIQUETAS_DATOS, relacionados, tratamientoPorSlug, 
 
 export const revalidate = 3600
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 export function generateStaticParams() {
   return TRATAMIENTOS.map((t) => ({ slug: t.slug }))
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const t = tratamientoPorSlug(params.slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const t = tratamientoPorSlug(slug)
   if (!t) return {}
   const titulo = `${t.nombre} en Mar del Plata`
   const descripcion = DESCRIPCIONES_META[t.slug] ?? t.intro
@@ -38,8 +39,9 @@ export function generateMetadata({ params }: Props): Metadata {
   }
 }
 
-export default function FichaTratamiento({ params }: Props) {
-  const t = tratamientoPorSlug(params.slug)
+export default async function FichaTratamiento({ params }: Props) {
+  const { slug } = await params
+  const t = tratamientoPorSlug(slug)
   if (!t) notFound()
 
   const palabras = t.nombre.split(' ')

@@ -13,16 +13,17 @@ const DESCRIPCION =
   'Tratamientos de medicina estética para rostro y cuerpo en Mar del Plata: toxina botulínica, rellenos, bioestimulación, mesoterapia y plasma rico en plaquetas.'
 
 export const metadata: Metadata = {
-  title: 'Tratamientos de medicina estética en Mar del Plata',
+  title: 'Tratamientos estéticos en Mar del Plata',
   description: DESCRIPCION,
   alternates: { canonical: '/tratamientos' },
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     siteName: 'Antognini Medicina Estética Integral',
-    title: 'Tratamientos de medicina estética en Mar del Plata | Antognini',
+    title: 'Tratamientos estéticos en Mar del Plata | Antognini',
     description: DESCRIPCION,
     url: '/tratamientos',
+    images: ['/opengraph-image.png'],
   },
 }
 

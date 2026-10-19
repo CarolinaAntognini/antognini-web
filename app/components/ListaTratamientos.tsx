@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import { TRATAMIENTOS, ZONAS, type Zona } from '../data/tratamientos'
 import { FlechaLarga } from './Detalles'
 
@@ -12,18 +12,22 @@ function filtroInicial(zona: string | null): Filtro {
   return ZONAS.find((z) => z.toLowerCase() === (zona ?? '').toLowerCase()) ?? 'Todos'
 }
 
-export default function ListaTratamientos() {
-  // La lista completa sale en el HTML del servidor (Google la lee); el filtro de ?zona= se aplica al cargar.
-  const [filtro, setFiltro] = useState<Filtro>('Todos')
+// Lee ?zona= de la dirección sin romper el HTML del servidor (ahí siempre sale la lista completa)
+function suscribirse(avisar: () => void) {
+  window.addEventListener('popstate', avisar)
+  return () => window.removeEventListener('popstate', avisar)
+}
+const zonaDeLaDireccion = () => new URLSearchParams(window.location.search).get('zona') ?? ''
 
-  useEffect(() => {
-    setFiltro(filtroInicial(new URLSearchParams(window.location.search).get('zona')))
-  }, [])
+export default function ListaTratamientos() {
+  const zona = useSyncExternalStore(suscribirse, zonaDeLaDireccion, () => '')
+  const [elegido, setElegido] = useState<Filtro | null>(null)
+  const filtro = elegido ?? filtroInicial(zona)
 
   const lista = TRATAMIENTOS.filter((t) => filtro === 'Todos' || t.zonas.includes(filtro))
 
   function elegir(nuevo: Filtro) {
-    setFiltro(nuevo)
+    setElegido(nuevo)
     const url = nuevo === 'Todos' ? '/tratamientos' : `/tratamientos?zona=${nuevo}`
     window.history.replaceState(null, '', url)
   }

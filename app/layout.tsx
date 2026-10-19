@@ -29,7 +29,7 @@ const body = Urbanist({
 })
 
 const DESCRIPCION =
-  'Medicina estética integral en Mar del Plata. Toxina botulínica, rellenos, bioestimulación, mesoterapia y plasma rico en plaquetas, con criterio médico y resultados naturales.'
+  'Medicina estética en Mar del Plata: toxina botulínica, rellenos, bioestimulación y plasma rico en plaquetas, con criterio médico y resultados naturales.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(URL_SITIO),
