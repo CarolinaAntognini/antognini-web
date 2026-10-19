@@ -2755,12 +2755,21 @@ body:has(.links-page) {
   margin: 0 auto;
 }
 .links-sub {
-  margin: 18px 0 0;
-  font-family: var(--f-display), serif;
-  font-style: italic;
-  font-size: 21px;
-  line-height: 1.3;
+  margin: 20px 0 0;
+  font-family: var(--f-body), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.26em;
+  line-height: 1.5;
+  text-transform: uppercase;
   color: rgba(249, 247, 244, 0.88);
+}
+.links-sub span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  opacity: 0.75;
 }
 .links-lista {
   display: grid;
@@ -2771,8 +2780,8 @@ body:has(.links-page) {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 78px;
-  padding: 16px 24px;
+  min-height: 68px;
+  padding: 14px 24px;
   border: 1px solid rgba(249, 247, 244, 0.5);
   background: rgba(249, 247, 244, 0.04);
   color: var(--cream);
@@ -2803,7 +2812,7 @@ body:has(.links-page) {
 .links-btn-t span {
   font-family: var(--f-display), serif;
   font-weight: 500;
-  font-size: 27px;
+  font-size: 25px;
   line-height: 1.1;
 }
 .links-btn-t small {
@@ -2822,9 +2831,6 @@ body:has(.links-page) {
   font-size: 14px;
   line-height: 1.8;
   color: rgba(249, 247, 244, 0.75);
-}
-.links-pie-2 {
-  margin-top: 14px;
 }
 .links-pie a {
   text-decoration: underline;

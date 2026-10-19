@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Grano } from '../components/Detalles'
+import { promocionVigente } from '../data/promociones'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 
-export const revalidate = 3600
+// Se regenera seguido: así la promo desaparece sola poco después de su último día
+export const revalidate = 600
 
 export const metadata: Metadata = {
   title: 'Links',
@@ -23,12 +25,18 @@ const Flecha = () => (
 )
 
 export default function PaginaLinks() {
+  const promo = promocionVigente()
+
   const botones: Boton[] = [
     { texto: 'Reservar turno', detalle: 'Por WhatsApp', href: whatsappUrl('Hola, quiero reservar un turno'), externo: true, principal: true },
-    { texto: 'Tratamientos', detalle: 'Qué hacemos y para qué sirve', href: '/tratamientos' },
-    { texto: 'Resultados', detalle: 'Antes y después', href: '/resultados' },
-    { texto: 'Cómo llegar', detalle: `${SITIO.direccion[0]}, ${SITIO.ciudad}`, href: SITIO.mapa, externo: true },
-    { texto: 'Instagram', detalle: `@${SITIO.instagram}`, href: instagramUrl, externo: true },
+    ...(promo ? [{ texto: `Promo ${promo.titulo}`, detalle: `${promo.destacado} ${promo.etiqueta} ${promo.descripcion}`, href: '/#promo' }] : []),
+    { texto: 'Tratamientos', href: '/tratamientos' },
+    { texto: 'Resultados', href: '/resultados' },
+    { texto: 'Gift card', detalle: 'Regalá un tratamiento', href: whatsappUrl('Hola, quiero comprar una gift card'), externo: true },
+    { texto: 'Preguntas frecuentes', href: '/#preguntas' },
+    { texto: 'Ubicación', href: SITIO.mapa, externo: true },
+    { texto: 'Seguinos en Instagram', href: instagramUrl, externo: true },
+    { texto: 'Visitá nuestra web', href: '/' },
   ]
 
   return (
@@ -45,8 +53,7 @@ export default function PaginaLinks() {
           </h1>
           <p className="links-sub">
             Medicina estética integral
-            <br />
-            {SITIO.ciudad}
+            <span>{SITIO.ciudad}</span>
           </p>
         </div>
 
@@ -75,16 +82,6 @@ export default function PaginaLinks() {
         </nav>
 
         <p className="links-pie">
-          {SITIO.horarios.map((h, i) => (
-            <span key={h.dias}>
-              {i > 0 && ' · '}
-              {h.dias}: {h.horas}
-            </span>
-          ))}
-        </p>
-        <p className="links-pie links-pie-2">
-          <Link href="/">Ver el sitio completo</Link>
-          <br />
           <Link href="/terminos">Términos y condiciones</Link> · <Link href="/privacidad">Política de privacidad</Link>
         </p>
       </div>
