@@ -46,7 +46,8 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     pregunta: '¿Qué medios de pago tienen?',
-    respuesta: 'Tenemos 10% de descuento en efectivo o transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard.',
+    respuesta:
+      'Tenemos 10% de descuento en efectivo o transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard. También aceptamos American Express, MODO y billeteras virtuales.',
   },
   {
     pregunta: '¿Cuántas sesiones necesito?',
