@@ -54,7 +54,11 @@ export default function Footer({ conDatos = true }: { conDatos?: boolean }) {
         <Link href="/privacidad">Política de privacidad</Link>
       </nav>
       <div className="foot-in">
-        <span>Sitio creado por Lic. Carolina Antognini</span>
+        <span>
+          © 2026 Antognini Medicina Estética Integral. Todos los derechos reservados.
+          <br />
+          Sitio creado por Lic. Carolina Antognini
+        </span>
         <Link href="#inicio">Volver arriba ↑</Link>
       </div>
     </footer>

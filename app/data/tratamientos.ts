@@ -199,7 +199,7 @@ export const TRATAMIENTOS: Tratamiento[] = [
       'Es un tratamiento estético realizado con ácido hialurónico que permite mejorar la hidratación, definición y armonía de los labios.',
     datos: {
       sesiones: '1 sesión',
-      entreSesiones: 'Control a la semana. Si hace falta un retoque, a las 2 a 4 semanas',
+      entreSesiones: 'Control a la semana',
       resultados: 'Inmediatos, con evolución durante los días posteriores. Duran alrededor de 6 a 12 meses',
       zonas: 'Labios',
     },

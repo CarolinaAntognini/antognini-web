@@ -1379,6 +1379,7 @@ html {
   flex-wrap: wrap;
   font-size: 12px;
   letter-spacing: 0.08em;
+  line-height: 1.7;
 }
 .foot a {
   text-decoration: none;
