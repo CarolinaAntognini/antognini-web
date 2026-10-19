@@ -59,9 +59,8 @@ export default function PaginaLinks() {
           </svg>
           <p className="links-dra">
             {medica.nombre}
-            <span>
-              {medica.matricula} · {SITIO.ciudad}
-            </span>
+            <span aria-hidden="true">|</span>
+            <small>{medica.matricula}</small>
           </p>
         </div>
 
