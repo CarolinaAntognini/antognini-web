@@ -54,9 +54,7 @@ export default function Footer({ conDatos = true }: { conDatos?: boolean }) {
         <Link href="/privacidad">Política de privacidad</Link>
       </nav>
       <div className="foot-in">
-        <span>
-          © {new Date().getFullYear()} · {SITIO.descriptor} · {SITIO.ciudad}
-        </span>
+        <span>Sitio creado por Lic. Carolina Antognini</span>
         <Link href="#inicio">Volver arriba ↑</Link>
       </div>
     </footer>
