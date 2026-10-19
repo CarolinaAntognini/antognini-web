@@ -3,13 +3,13 @@ import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import PromoSection from './components/PromoSection'
 import { CategoriasTratamientos, Consulta, Contacto, Equipo, Filosofia, GiftCard, Marcas, PreguntasFrecuentes } from './components/Secciones'
-import { promocionVigente } from './data/promociones'
+import { promocionVigenteAsync } from './data/promociones'
 
 // La página se regenera cada hora: así la promo aparece y desaparece sola según las fechas.
 export const revalidate = 3600
 
-export default function Inicio() {
-  const promo = promocionVigente()
+export default async function Inicio() {
+  const promo = await promocionVigenteAsync()
 
   return (
     <>

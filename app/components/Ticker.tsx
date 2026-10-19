@@ -2,13 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import BotonPausa from './BotonPausa'
 import { AVISOS_FIJOS } from '../data/sitio'
-import { fechaCorta, promocionVigente } from '../data/promociones'
+import { fechaCorta, promocionVigenteAsync } from '../data/promociones'
 
 type Aviso = { clave: string; texto: string; promo?: { titulo: string } }
 
 /** Cinta en movimiento de arriba de todo: promo vigente (si hay) y beneficios de pago. */
-export default function Ticker() {
-  const promo = promocionVigente()
+export default async function Ticker() {
+  const promo = await promocionVigenteAsync()
   const avisos: Aviso[] = [
     ...(promo
       ? [

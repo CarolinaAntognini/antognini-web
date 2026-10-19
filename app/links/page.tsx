@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Grano } from '../components/Detalles'
 import { EQUIPO } from '../data/equipo'
-import { promocionVigente } from '../data/promociones'
+import { promocionVigenteAsync } from '../data/promociones'
 import { instagramUrl, SITIO, whatsappUrl } from '../data/sitio'
 
 // Se regenera seguido: así la promo desaparece sola poco después de su último día
@@ -25,8 +25,8 @@ const Flecha = () => (
   </svg>
 )
 
-export default function PaginaLinks() {
-  const promo = promocionVigente()
+export default async function PaginaLinks() {
+  const promo = await promocionVigenteAsync()
   const medica = EQUIPO[0]
 
   const botones: Boton[] = [
