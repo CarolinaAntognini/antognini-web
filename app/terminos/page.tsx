@@ -40,7 +40,7 @@ const SECCIONES: SeccionLegal[] = [
   {
     titulo: 'Medios de pago, promociones y gift card',
     parrafos: [
-      'Se ofrece un 10% de descuento en pagos en efectivo o por transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard.',
+      'Se ofrece un 10% de descuento en pagos en efectivo o por transferencia, y 3 cuotas sin interés con tarjetas de crédito Visa y Mastercard. También se aceptan American Express, MODO y billeteras virtuales.',
       'Las promociones informadas en el sitio rigen durante el período indicado en cada caso. La gift card puede utilizarse para cualquier tratamiento y tiene una validez de 30 días.',
     ],
   },
