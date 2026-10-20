@@ -15,9 +15,28 @@ export const PREGUNTAS: Pregunta[] = [
     enlace: { texto: 'Conocer al equipo', href: '/#equipo' },
   },
   {
+    pregunta: '¿Quién realiza los tratamientos?',
+    respuesta: 'Los tratamientos de medicina estética los realiza la Dra. Agustina Antognini, médica matriculada (M.P. 97025).',
+  },
+  {
     pregunta: '¿Quiénes forman el equipo?',
     respuesta:
       'Además de la Dra. Agustina Antognini, el equipo incluye a Milagros De La Garma, cosmetóloga, y a la Lic. Sofía Zappalá, nutricionista.',
+  },
+  {
+    pregunta: '¿Cómo pido un tratamiento de cosmetología?',
+    respuesta:
+      'Los tratamientos de cosmetología los realiza Milagros De La Garma, cosmetóloga, y se solicitan por WhatsApp. Escribinos y te contamos las opciones y los horarios disponibles.',
+    enlace: { texto: 'Pedir por WhatsApp', href: '', whatsapp: 'Hola, quiero consultar por un tratamiento de cosmetología' },
+  },
+  {
+    pregunta: '¿Cómo saco turno con la nutricionista?',
+    respuesta:
+      'Los turnos con la Lic. Sofía Zappalá, nutricionista, se coordinan por WhatsApp al +54 9 223 526-8196. También podés escribir al WhatsApp de Antognini, +54 9 223 502-1512.',
+    enlace: {
+      texto: 'Escribir a la nutricionista',
+      href: 'https://wa.me/5492235268196?text=Hola%2C%20quiero%20sacar%20un%20turno%20con%20la%20nutricionista',
+    },
   },
   {
     pregunta: '¿Qué tratamientos realizan?',
